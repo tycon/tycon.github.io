@@ -41,13 +41,17 @@ important:
     -----------------------
            Γ⊢e:∀α.σ
 
-Basically, ∀α.σ is closure of σ w.r.t Γ (denoted $$\bar{\Gamma}(\sigma)$$)
-Let-bound variables have polymorphic types:
+Basically, ∀α.σ is closure of σ w.r.t Γ (denoted $$\bar{\Gamma}(\sigma)$$).
+
+#### `Let` Polymorphism
+
+There is only one rule to introduce polymorphic type into the context Γ:
 
     Γ⊢e:σ       Γ,x:σ⊢e':τ 
     ----------------------
       Γ⊢(let x=e in e'):τ
   
+
 #### The Inference Algorithm W:
 
 Uses Robinson's unification algorithm (U), with following properties:
