@@ -59,7 +59,7 @@ Uses Robinson's unification algorithm (U), with following properties:
 1. U takes a pair of types (τ and τ'), and returns a subtitution V, such 
 that V(τ)=τ'. We say that V unifies τ and τ'
 2. If substitution S also unifies τ and τ', then there is another substitution
-R such that S=RV.
+R such that S=R o V.
 
 Algorithm W is shown below:
 
@@ -98,7 +98,7 @@ Consider λx.e. We type e under Γ={x:β}, where β is new. Assume
 e=e₁e₂. Lets say that analyzing e₁ has produced a substitution β ↦
 β₁→β₂. Now, before analyzing e₂, we apply this substitution to Γ. That
 is, we type e₂ under Γ={x:β₁→β₂}. Now, lets say that this yeilded a
-new substitution β₁ ↦ β₃→β₄. Now, both these subst- itutions have to
+new substitution β₁ ↦ β₃→β₄. Now, both these substitutions have to
 be applied to β to determine the type of λx.e.
 
 
@@ -185,21 +185,25 @@ first-order unification.
 #### Aside: Syntax Directed Rules: 
 
 When we say a set of rules is syntax directed, we mean:
+
 1. There is exactly one rule in the set that applies to each syntactic form, and
 2. We don't have to "guess" an input or output for any rule. For eg, To derive a 
    type for e₁e₂, we need to derive types for e₁ and e₂ under same environment.
 
 The initial formulation of type inference algorithm in HM(X) has following properties:
+
 1. Constraint normalization (solving) is interleaved with constraint generation. 
    Constraints are normalized as soon as they are generated, yeilding residual 
    constraints and tyvar substitutions as solution.
 2. The inference algorithm is formulated as a deductive system over clauses of form 
-   ψ,C,Γ ⊢ e:τ, with type environment Γ, expression e as input values, and substitution
+   `ψ,C,Γ ⊢ e:τ`, with type environment Γ, expression e as input values, and substitution
    ψ, constraint C, and type τ as output values. The constraint C captures assumptions 
    over type variables under which the typing holds, and ψ describes type variable 
    substitutions for free variables in Γ.
    
-Rules: in OneNote
+Following are the rules:
+
+![HMX-rules]({{ site.baseurl }}/assets/HMX-rules.png)
 
 #### Notes :
 
