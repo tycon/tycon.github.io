@@ -7,8 +7,8 @@ permalink: ML-type-inference.html
 ### Damas-Milner Algorithm for Type Inference
 
 Let us take a look at the original type inference algorithm produced
-by Damas and Milner. Their language is lambda calculus with `let`
-expression:
+by [Damas and Milner][DM82]. Their language is lambda calculus with
+`let` expression:
 
     e ::= x | λx.e | e e | let x=e in e 
 
@@ -54,7 +54,7 @@ There is only one rule to introduce polymorphic type into the context Γ:
 
 #### The Inference Algorithm W:
 
-Uses Robinson's unification algorithm (U), with following properties:
+Uses [Robinson's unification algorithm][Robinson65] (U), with following properties:
 
 1. U takes a pair of types (τ and τ'), and returns a subtitution V, such 
 that V(τ)=τ'. We say that V unifies τ and τ'
@@ -108,6 +108,11 @@ Modularity - we separate constraint generation and constraint solving. A separat
 constraint language can be defined. Can be made as complex as analysis requires.
 
 #### STLC Constraint Typing:
+
+References: 
+
+1. [T Jones, Type Inference for ML][Jones2012].
+2. [Mitchell Wand, A Simple Algorithm and a Proof for Type Inference, 1987][wand87]
 
 A Constraint is an equality between two types:
 
@@ -166,7 +171,7 @@ generated as follows:
 
 ### HM(X)
 
-HM(X) itself is parameterized over the constraint domain (X). It makes only
+[HM(X)][HMX99] itself is parameterized over the constraint domain (X). It makes only
 a few assumption about language of constraints:
 
 The constraint domain can be 
@@ -290,3 +295,9 @@ such constraints becomes tough. If DM is at one extreme, where solving is
 straightforward unification, at the other extreme is Algorithm VC, shown previously.
 
 Algorithm VC requires expressive constraint language, as shown previously.
+
+[DM82]: http://web.cs.wpi.edu/~cs4536/c12/milner-damas_principal_types.pdf
+[Jones2012]: http://www.ccs.neu.edu/home/amal/course/7480-s12/inference-notes.pdf
+[HMX99]: http://dl.acm.org/citation.cfm?id=308203
+[wand87]: http://web.cs.ucla.edu/~palsberg/course/cs239/reading/wand87.pdf
+[Robinson65]: http://dl.acm.org/citation.cfm?id=321253
