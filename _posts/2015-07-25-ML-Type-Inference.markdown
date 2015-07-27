@@ -18,7 +18,7 @@ Type language composed of a set of type variables (α) and primitive types
     τ = α | ι | τ → τ
     σ = τ | ∀α.σ
 
-A Type substitution is [τ1/α1, τ2/α2, ... , τn/αn]. It distinguished
+A Type substitution is `[τ1/α1, τ2/α2, ... , τn/αn]`. It distinguished
 between an α, a type, and α, a type variable. 
 
 We define a relation (≥) that relates a more polymorphic type to a less 
@@ -43,7 +43,7 @@ important:
 
 Basically, ∀α.σ is closure of σ w.r.t Γ (denoted $$\bar{\Gamma}(\sigma)$$).
 
-#### `Let` Polymorphism
+#### Let Polymorphism
 
 There is only one rule to introduce polymorphic type into the context Γ:
 
