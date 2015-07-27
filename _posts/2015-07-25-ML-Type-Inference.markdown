@@ -72,24 +72,25 @@ Algorithm W is shown below:
                  ([],τ)
       | (e₁ e₂) => let (S₁,τ₁) = W(Γ,e₁) in
                    let (S₂,τ₂) = W(S₁(Γ),e₂) in
-             let β = freshTyVars(1) in
-             let V = U(S₂(τ₁), τ₂ → β) in
-             let S = V o S₂ o S₁ in
-             let τ = V(β) in
-               (S,τ)
+                   let β = freshTyVars(1) in
+                   let V = U(S₂(τ₁), τ₂ → β) in
+                   let S = V o S₂ o S₁ in
+                   let τ = V(β) in
+                     (S,τ)
       | (λx.e) => let β = freshTyVar(1) in
-              let (S₁,τ₁) = W(Γ[x↦β],e₁) in
-            let τ = S₁(β)→τ₁ in
-              (S₁,τ)
+                  let (S₁,τ₁) = W(Γ[x↦β],e₁) in
+                  let τ = S₁(β)→τ₁ in
+                    (S₁,τ)
       | (let x=e₁ in e₂) => let (S₁,τ₁) = W(Γ,e₁) in
-                            let σ₁ = \bar{S₁(Γ)}(τ₁) in
+                            let Γ' = S₁(Γ) in
+                            let σ₁ = \bar{Γ'}(τ₁) in (* close τ₁ w.r.t Γ' *)
                             let (S₂,τ₂) = W(S₁(Γ)[x↦σ₁],e₂) in
-                let S = S₂ o S₁ in
-                    (S,τ₂)
+                            let S = S₂ o S₁ in
+                                (S,τ₂)
             
 
-Observe that substitutions originate only from unification, which
-happens during function application. A type constraint is solved
+Observe that substitutions originate __only from unification__, which
+happens during __function application__. A type constraint is solved
 immediately as it is generated. We accumulate substitutions as we
 make progress. We apply pending substitutions to Γ before proceeding
 to next step.
@@ -107,14 +108,16 @@ be applied to β to determine the type of λx.e.
 Modularity - we separate constraint generation and constraint solving. A separate
 constraint language can be defined. Can be made as complex as analysis requires.
 
-#### STLC Constraint Typing:
+#### Constraint-based typing for STLC (Wand,1987):
 
 References: 
 
 1. [T Jones, Type Inference for ML][Jones2012].
 2. [Mitchell Wand, A Simple Algorithm and a Proof for Type Inference, 1987][wand87]
 
-A Constraint is an equality between two types:
+
+A Constraint is an equality between two types (i.e., a unification
+constraint):
 
     datatype C = Eq of τ * τ
 
@@ -131,6 +134,7 @@ for e to have type τ under Γ, and a set of type constraints on sub-expressions
 The function constraints can be defined in terms of action:
 
     letrec constraints(Γ,e,τ) = 
+      let bind (s,f) = Set.Union (Set.map s f) in
       let (eqC,tyC) = action (Γ,e,τ) in
       let eqC' = bind(tyC, λ(Γ',e',τ').constraints(Γ',e',τ')) in
     eqC ∪ eqC'
@@ -147,11 +151,17 @@ The action function for STLC can be defined as following:
  
 #### ML Constraint Typing 
 
-Need richer constraint language 
+Since ML has type schemes, to express constraints that arise while
+analyzing ML expressions, we need a richer constraint language:
 
     C ::= τ=τ' | ∃α₁,...,αn.C | C ∧ C
   
-Need richer type language:
+It is important to remember that the equality in the above constraint
+language denotes unification. As such, a less polymorphic type is
+unifiable with more polymorphic type. In this sense, perhaps the
+unification constraint should be written as `τ≤τ'`.
+
+We also need a richer type language:
 
     σ ::= τ | ∀{α₁,...,αn | C}.τ
 
