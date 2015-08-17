@@ -4,6 +4,11 @@ title:  "ML Type Inference"
 permalink: ML-type-inference.html
 ---
 
+One of the most useful features of ML-family languages (OCaml,
+Standard ML, F# etc) is the type inference. This post contains the
+notes I took when I was trying to understand the foundational
+principles of ML type inference. 
+
 ### Damas-Milner Algorithm for Type Inference
 
 Let us take a look at the original type inference algorithm produced
@@ -41,7 +46,7 @@ important:
     -----------------------
            Γ⊢e:∀α.σ
 
-Basically, ∀α.σ is closure of σ w.r.t Γ (denoted $$\bar{\Gamma}(\sigma)$$).
+Basically, ∀α.σ is closure of σ w.r.t Γ (denoted \\(\bar{\Gamma}(\sigma)\\)).
 
 #### Let Polymorphism
 

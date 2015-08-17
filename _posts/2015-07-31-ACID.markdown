@@ -1,0 +1,9 @@
+---
+layout: post
+title:  "Atomicity vs Isolation"
+permalink: ACID.html
+---
+From the perspective of a transaction,
+
+* Isolation: How should I see effects of other transactions.
+* Atomicity: How other transactions see my effects.
