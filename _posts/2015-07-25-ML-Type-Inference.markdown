@@ -55,7 +55,8 @@ There is only one rule to introduce polymorphic type into the context Γ:
     Γ⊢e:σ       Γ,x:σ⊢e':τ 
     ----------------------
       Γ⊢(let x=e in e'):τ
-  
+
+<!--more-->
 
 #### The Inference Algorithm W:
 

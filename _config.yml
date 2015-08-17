@@ -25,7 +25,8 @@ disqus: 'tycon'
 comments: true
 
 permalink: /:year/:month/:title
-paginate: 3
+paginate: 10
+excerpt_separator: <!--more-->
 
 highlighter: pygments
 markdown: redcarpet

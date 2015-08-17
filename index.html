@@ -10,7 +10,13 @@ layout: default
           <p class="author"><a href="{{ site.baseurl }}{{ post.url }}/#disqus_thread">Comments</a></p>
         {% endif %}
         <div class="content">
-            {{ post.content }}
+            {% if post.content.size > 200 %}
+              {{ post.excerpt }}
+              <!-- {{ post.content | truncatewords:50 }} -->
+               <a href="{{ post.url }}">Continue reading</a>
+            {% else %}
+              {{ post.content }}
+            {% endif %}
         </div>
     </div>
 </div>
