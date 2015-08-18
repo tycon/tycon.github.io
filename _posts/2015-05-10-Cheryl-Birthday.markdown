@@ -208,7 +208,7 @@ Cheryl Birthday Puzzle
 
 We shall now see how formal logic and Z3 to can be used to simplify
 the reasoning required to solve Cheryl’s birthday puzzle. For the
-impatient, [here](http://rise4fun.com/Z3/JQ2R) is the solution.
+impatient, [here](http://rise4fun.com/Z3/sA4R) is the solution.
 
 First, let us recall the problem statement. Here is the text:
 
