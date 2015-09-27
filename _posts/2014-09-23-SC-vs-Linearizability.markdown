@@ -26,5 +26,5 @@ perceived end of the operation.
 Evidently, linearizability is a stronger constraint than sequential
 consistency (or serializability). Nevertheless, it is said that
 linearizability is a local property (i.e., composable), sc is not.  (I
-don't understand this. If you know what this means, please let me
-know.)
+don't understand this. If you know what this means, please drop a
+comment.)
