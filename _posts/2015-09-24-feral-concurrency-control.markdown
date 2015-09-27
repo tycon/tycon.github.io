@@ -1,5 +1,6 @@
 ---
 layout: post
+comments: true
 title:  "Notes - Feral Concurrency Control"
 permalink: feral-concurrency-control.html
 ---
