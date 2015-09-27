@@ -1,0 +1,87 @@
+---
+layout: post
+title:  "Sequential Consistency and Datarace freedom in Weak Memory
+Models"
+permalink: sc-drf-wmm.html
+---
+
+A natural view of execution of a multi-threaded program is as follows:
+
+    exn = []
+    while (there is an unfinished thread) {
+      t = select an unfinished thread;
+      instr = first(t);
+      exn := exn ++ [instr];
+      t := rest(t);
+    }
+    return exn;
+
+Observe that `exn` preserves program order of all threads. This is
+sequential consistency. However, there is still non-determinism on
+line 3. When there are shared variables, this is the source of
+data-races. For example, consider the following program (assume that
+initially `x` is `0`):
+
+    [
+      [STORE (x,3)],
+      [STORE (x,4); PRINT (LOAD x)]
+    ]
+
+Since there is non-determinism, either of the `STORE`s can be executed
+first. Possible sequentially consistent (SC) executions are:
+
+    1. [STORE(x,3); STORE(x,4); PRINT(LOAD x)]
+    2. [STORE(x,4); STORE(x,3); PRINT(LOAD x)]
+    3. [STORE(x,4); PRINT(LOAD x); STORE(x,3)]
+
+Notice that `STORE(x,3)` conflicts with `STORE(x,4)` and also with
+`LOAD x`, as each pair accesses same memory location, and `STORE`
+writes to the memory location. Further, notice that there exists at
+least one pair of SC executions, where one execution is obtained from
+other by just reordering an adjacent pair of conflicting operations.
+Hence the program has data-race. The above SC executions print 4, 3
+and 4, respectively.  Therefore, the set of acceptable outputs in a
+sequentially consistent execution (even in presence of data-races) is
+{3,4} (note: the set does not include 0). 
+
+Let us assume we have locks in our language.  Then, the execution of a
+multi-threaded program can be constructed as following:
+
+    exn = []
+    while (there is an unfinished thread) {
+      do {
+        t = select an unfinished thread;
+      } while (first(t) = LOCK(c) and 
+               exn = exn'++ [LOCK(c)] ++ exn'' where
+               UNLOCK(c) notin exn'')
+      instr = first(t);
+      exn := exn ++ [instr];
+      t := rest(t);
+    }
+    return exn;
+
+Locks help us control the amount of non-determinism in the program.
+For example, for the following program:
+
+    [
+      [LOCK(c); STORE (x,3); UNLOCK(c)],
+      [LOCK(c); STORE (x,4); PRINT (LOAD x); UNLOCK(c)]
+    ]
+
+Possible executions are:
+
+    1. [LOCK(c); STORE(x,3); UNLOCK(c); 
+        LOCK(c); STORE(x,4); PRINT(LOAD x); UNLOCK(c)]
+    2. [LOCK(c); STORE(x,4); PRINT(LOAD x); UNLOCK(c); 
+        LOCK(c); STORE(x,3); UNLOCK(c)]
+
+The only acceptable output of the program now is 4. Further, there are
+no adjacent conflicting operations in any of the above SC executions.
+So, the program is DR-free.
+
+A data-race-free model guarantees SC only for data-race-free programs.
+A program is DRF if and only if it is impossible to construct an SC
+execution with concurrent conflicting memory accesses, where one of
+them is a `STORE`. (When do we say two memory accesses are concurrent?)
+
+
