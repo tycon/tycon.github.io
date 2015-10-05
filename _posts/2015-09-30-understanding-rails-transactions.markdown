@@ -377,11 +377,12 @@ microblog.
 __getTimeLine__: Get a list of microposts by a user (the call is: 
 `Micropost.includes(:user).from_users_followed_by(user)`).
 
-    getTimeLine(user) =
+    getTimeLine(user) = transaction do
       posts := SQL "SELECT * FROM microposts WHERE 
-        user_id = `user.id`";
+                      user_id = `user.id`";
       posts.each |post| do
-        post.user := (SQL "SELECT * FROM users WHERE id = post.user_id LIMIT 1").first;
+        post.user := (SQL "SELECT * FROM users WHERE 
+                      id = post.user_id LIMIT 1").first;
       return posts;
 
 <!-- To display the timeline, the application might do the following:
