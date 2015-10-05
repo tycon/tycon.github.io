@@ -374,35 +374,31 @@ microblog.
       SQL "INSERT INTO microposts (content, user_id) 
            VALUES (`blog.content`, `thisUser.id`)";
 
-__getTimeLine__: Get a list of microposts by a user.
+__getTimeLine__: Get a list of microposts by a user (the call is: 
+`Micropost.includes(:user).from_users_followed_by(user)`).
 
     getTimeLine(user) =
       posts := SQL "SELECT * FROM microposts WHERE 
         user_id = `user.id`";
+      posts.each |post| do
+        post.user := (SQL "SELECT * FROM users WHERE id = post.user_id LIMIT 1").first;
       return posts;
 
-To display the timeline, the application might do the following:
+<!-- To display the timeline, the application might do the following:
 
     posts = getTimeLine(user);
     posts.each |post| do
       print post.user.name;
       print post.content;
+-->
 
-Which gets translated to the following piece of code:
-
-    posts = getTimeLine(user);
-    posts.each |post| do
-      print (SQL "SELECT * FROM users WHERE id = post.user_id LIMIT 1").first.name;
-      print post.content;
-
-The SQL call never returns an empty collection because:
+The SQL call to `users` table never returns an empty collection because:
 
 * A micropost `belongs_to` a user, and checks the presence of the user
   before persisting, and
 * When a user is deleted, the dependent microposts are also deleted.
 
-Therefore, `.first.name` on the collection returned by SQL is always
-valid.
+Therefore, `.first` on the collection returned by SQL is always valid.
 
 __getFeed__: Get a list of microposts by users being followed by
 the current users. The implementation, and discussion for this
