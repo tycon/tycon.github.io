@@ -1,0 +1,25 @@
+---
+layout: post
+title:  "Effing Package Management (FPM)"
+permalink: fpm-tool.html
+---
+
+If you are ever into making debian packages to distribute your
+software, check out this great package management tool called
+[fpm](https://github.com/jordansissel/fpm/wiki) by
+[@jordansissel](https://github.com/jordansissel). FPM is no-nonsense
+package manager that lets you create packages by simply specifying
+dependencies, and source and destination paths for your binaries,
+libraries and includes.
+
+### Example ###
+
+Let us say you want to make a debian package to distribute the first
+version of your `hello-dev` application, that provides a binary
+(`hello`), a dynamic library (`libhello.so`) and an include file
+(`hello.h`), which you want to be installed in the usual locations
+under `/usr`. Also, let's assume that your application requires `gcc`
+version 4.6.3 or above.  Creating a debian package for your is as easy
+as:
+
+     fpm -s dir -t deb -n "hello-dev" -v 1.0 --description "Hello development tools" -d 'gcc > 4.6.3' ./hello=/usr/bin/hello ./libhello.so=/usr/lib/libhello.so ./hello.h=/usr/include/hello.h ./LICENSE=/usr/share/doc/hello-dev/copyright
