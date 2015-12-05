@@ -295,7 +295,7 @@ Hartl.
 The app defines 3 models - `micropost`, `user`, and `relationship`
 with following associations and validations:
 
-* Micropost `belongs_to` a user, and validates the presence.
+* Micropost `belongs_to` a user, and validates user's presence.
 * A user has an email address; validates its presence and uniqueness.
 * A user `has_many` _follower_ relationships, and `through:` those
   relationships, `has_many` followers. Follower relationships need to
