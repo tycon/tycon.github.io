@@ -131,7 +131,7 @@ integrity is jeopardized. Towards this end, Rails does the following:
 If transactions are serializable as expected, then validations are
 indeed safe. However, databases do not offer serializable transactions
 by default (the default isolation level in PostgresSQL is RC. In
-MySQL, it is RR.), and, in some cases, they do not offer
+MySQL (InnoDB), it is RR.), and, in some cases, they do not offer
 serializability at all. Given the possibility of concurrent
 transactions under weaker isolation levels (for e.g., RC ensures that
 visible transactions are entirely visible. It doesn't guarantee total

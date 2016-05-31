@@ -402,8 +402,18 @@ The SQL call to `users` table never returns an empty collection because:
 Therefore, `.first` on the collection returned by SQL is always valid.
 
 __getFeed__: Get a list of microposts by users being followed by
-the current users. The implementation, and discussion for this
-operation is same as that of `getTimeLine`.
+the current user. 
+
+    getFeed(user) = transaction do
+      followed_ids := SQL "SELECT followed_id FROM relationships
+                            WHERE follower_id = `user.id`";
+      uids_of_interest := user.id :: followed_ids ;
+      posts := SQL "SELECT * FROM microposts WHERE 
+                      user_id IN `uids_of_interest`";
+      posts.each |post| do
+        post.user := (SQL "SELECT * FROM users WHERE 
+                      id = post.user_id LIMIT 1").first;
+      return posts;
 
 __deleteUser__: Delete the current user. It has to enforce `dependent:
 :destroy` on microposts and relationships.
