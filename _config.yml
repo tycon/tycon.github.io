@@ -1,7 +1,7 @@
 # Jekyll configuration
 
 name: TYCON
-description: module type of Tycon
+description: module type of TyCon
 
 # url is currently only used only for the RSS feed in feed.xml
 url: http://tycon.github.io
@@ -29,8 +29,8 @@ paginate: 10
 excerpt_separator: <!--more-->
 
 highlighter: pygments
-markdown: redcarpet
-redcarpet:
-  extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", "with_toc_data"]
+# markdown: redcarpet
+# redcarpet:
+#   extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", "with_toc_data"]
 
 exclude: ['README.md', 'LICENSE']
