@@ -18,9 +18,6 @@ implement stronger consistency guarantees, such as Causal Consistency.
 However, there are two major problems with the
 lattice-of-consistency-levels model espoused by Quelea:
 
-+ The flow of data between operations executing at various consistency
-  levels is not controlled. Consequently, data being maintained at EC
-  can make its way into the data being maintained at SC.
 + In real applications, invariants over the data are almost never
   strict. Applications can tolerate certain amount of error,
   especially if it improves the performance. For example, Amazon can
@@ -35,6 +32,9 @@ lattice-of-consistency-levels model espoused by Quelea:
   more-or-less sufficient to maintain application invariants. Quelea's
   consistency model lacks dynamic monitoring, thus cannot adapt
   consistency to the changing load conditions.
++ The flow of data between operations executing at various consistency
+  levels is not controlled. Consequently, data being maintained at EC
+  can make its way into the data being maintained at SC.
  
 Holt et al propose a system called IPA (Inconsistent,
 Performance-bound, Approximate storage system) that addresses the
