@@ -8,7 +8,8 @@ Today, in our reading group, we read an interesting paper titled
 "Disciplined Inconsistency" by Brandon Holt et al from UW CSE. This
 post is my notes on the paper.
 
-### Background ###
+Background
+==========
 
 Modern day web-services often trade consistency for availability and
 performance. However, there exist some data and operations for which
@@ -42,7 +43,8 @@ above problems via a combination of static type system and runtime
 enforcement. In the following, I explain various aspects of IPA in
 greater detail.
 
-### IPA's Programming Model ###
+IPA's Programming Model
+=======================
 
 IPA is modeled as a data structure store, like Redis, Riak, and
 Hyperdex, and its Scala-based programming framework allows programmers
@@ -92,7 +94,8 @@ library writers are concerned. This is in contrast to Quelea where RDT
 writers also reason in terms of high-level consistency policies and
 RDT-specific _effects_.
 
-### Static Type System ###
+Static Type System
+==================
 
 The stated purpose of IPA's consistency type system is to enforce
 _consistency safety_ Informally, it "ensures that values from weakly
@@ -148,7 +151,8 @@ Thus consistency types let application be sensitive to the consistency
 level of a value. Alternatively, they force the application to adopt a
 disciplined approach while dealing with inconsistent values.
 
-### Run-time enforcement of consistency ###
+Run-time enforcement of consistency
+===================================
 
 Strong consistency is implemented using `QUORUM` reads and writes. As
 we describe in _Representation without Taxation_ paper, such an
@@ -226,7 +230,8 @@ the queue), then merge operation becomes simple because a `dequeue`
 only dequeues an item present on all replicas. We also get the _read
 at least once_ guarantee on the messages in the queue.
 
-### Experiments ###
+Experiments
+============
 
 The experimental methodology of the paper is interesting, and results
 are insightful. Experiments are performed for two different setups:
