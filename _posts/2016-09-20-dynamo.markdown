@@ -186,6 +186,7 @@ Sample Applications
   also discussed in [this][reinvent13] AWS re:Invent 2013 video. The
   same video also describes Dropcam's experience using DynamoDB. The
 + Session logouts due to the lack of RMW is described [here][sessions].
++ Manu transaction examples [here][txnexamples].
 
 [dynamo]:http://www.allthingsdistributed.com/files/amazon-dynamo-sosp2007.pdf
 [sloppy]:https://jimdowney.net/2012/03/05/be-careful-with-sloppy-quorums/
@@ -203,4 +204,5 @@ Sample Applications
 [tttblog]:https://java.awsblog.com/post/Tx13H2W58QMAOA7/Performing-Conditional-Writes-Using-the-Amazon-DynamoDB-Transaction-Library
 [sessions]: https://aws.amazon.com/blogs/aws/scalable-session-handling-in-php-using-amazon-dynamodb/
 [reinvent13]: https://www.youtube.com/watch?v=Dh8kp1AcRg0
+[txnexamples]:https://github.com/awslabs/dynamodb-transactions/blob/master/examples/src/main/java/com/amazonaws/services/dynamodbv2/transactions/examples/TransactionExamples.java
 
