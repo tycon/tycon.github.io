@@ -1,0 +1,206 @@
+---
+layout: post
+title:  "Dynamo and DynamoDB"
+permalink: dynamo.html
+---
+
+In this post, I discuss DeCandia et al's Dynamo [paper][dynamo], and
+Amazon's DynamoDB service based on the paper.
+
+Dynamo
+======
+
+DeCandia et al's [Dyanamo][dynamo] is a distributed key-value store
+remarkable for it's entirely decentralized architecture, SLAs that
+focus on 99.9th percentile latency, emphasis on never losing writes,
+and the [notorious][sloppy] _sloppy quorums_.  Supporting
+decentralized architecture requried several innovations, such as
+anti-entropy protocols like _hinted handoff_ and _read repair_.
+Dynamo was originally built as an infrastructure rather than a
+service. To quote from the paper: "Each service that uses Dynamo runs
+its own Dyanamo instances", "[Dyamo] is built for a trusted
+environment". 
+
+Dynamo is a simple key-value store with flat keyspace. The keyspace is
+assumed to be quite large, hence partitioned across multiple nodes.
+The partitioning is done by a consistent hashing algorithm that
+envisions the keyspace as a ring, and makes a node responsible for an
+arc (usually an adjacent one) on the ring. Hence, each instance is
+called a Dynamo ring. For durability and high availability, each key
+is replicated across multiple nodes (called it's replication factor,
+which is usually set to 3), often spanning multiple data centers.
+Thus, a ring spans multiple geographic locations. Each node in the
+ring maintains a ring membership information, capturing the current
+node's view of the ring. This information is regularly updated via
+gossip. Any node in the ring accepts reads and writes for any key in
+the keyspace. If the node is not one of the replicas of the key, it
+forwards the request to a replica. For this purpose, each node
+maintains a _preference list_ of nodes for each partition of the
+keyspace, which is consulted to decide which node should serve a
+request. Even when all nodes have a consistent view of ring
+membership, preference lists maintained by different nodes can still
+be different. For instance, if nodes A and B are both replicas for key
+k, then preference list for k in A has A at the top, whereas in B's
+list has B at the top. In general, preference list for a partition at
+a node is ordered so as to minimize the latency to serve requests on
+key k starting from that node.
+
+Like all distributed databases, the durability of each read (R) and
+write (W) is configurable. Under normal circumstances, if R+W $$\ge$$
+N, where N is the replication factor, we get a system with quorum
+consistency that, for example, supports Read-My-Writes (RMW)
+guarantee. However, Dynamo's quorums are not traditional (Lamport)
+quorums. In the event of a network partition, even when none of the
+replicas for a key are reachable, Dynamo still accepts writes for the
+key, allowing the reachable nodes to act as makeshift replicas. While
+this behavior in itself is not suprising, considering that data stores
+are often designed to be available even if one node is reachable,
+Dynamo allows the reachable nodes to organize themselves into a ring,
+and form quorums on each side of the network partition! Such quorums
+are called _sloppy quorums_. Thus even if writes and reads from a
+session are successfully executed with quorum consistency, we still
+may not get RMW. 
+
+Network partitions or otherwise, concurrent updates to a key are
+possible. Dynamo uses vector clocks to identify multiple versions
+of an object corresponding to a key. If vector clocks of two versions
+are totally ordered, then conflict resolution is trivial. If they are
+not, then Dynamo keeps both the versions and lets the application
+handle conflicts. As I shall demonstrate later, keeping multiple
+versions is particularly important in case of Dynamo, otherwise it may
+lose the entire set of writes submitted on one side of a network
+partition after conflict resolution.
+
+DynamoDB
+========
+
+Present day DynamoDB is a multi-tenant hosted service offered by
+Amazon. The data model is more-or-less flat key-value, with some new
+additions (souce: [core components of DynamoDB][dynamoDBCore]):
+
++ While the unique primary key of a data item also used to be its
+  partition key, the primary key can now be defined as a combination
+  of partition key (also called the hash key) and a sort key (also
+  called the range key). Their combination needs to be unique for a
+  data item.
++ The value needs to be a JSON with any number of attributes. While
+  the primary key schema of each data item is fixed in a table, the
+  schema of values is not. However, DynamoDB takes cognizance of
+  attributes when a JSON is being stored, allowing secondary indexes to
+  be created, and the attributes to be queried.
+
+Some more relevant points from its [documentation][dynamodoc]:
+
++ Amazon DynamoDB stores three geographically distributed replicas of
+  each table to enable high availability and data durability.
++ Consistency across all copies of data is usually reached within a
+  second.
++ A strongly consistent read returns a result that reflects all writes
+  that received a successful response prior to the read.
+
+It is not clear how strongly consistent read is implemented in
+DynamoDB. If it has to return the value of previous write regardless
+of the write consistency, then its consistency level has to be ALL.
+Alternatively, if it only returns values of previous strong writes,
+then both read and write can be QUORUM (strict quorum; sloppy won't
+do). UPDATE: A [stackoverflow][stackoverflow1] user suggests that (a).
+DynamoDB only has only strict quorums (no sloppy quorums and hinted
+handoffs), (b). All writes in DynamoDB are written to a quorum of
+replicas, (c). By default, reads are served by a single replica, and
+(d). strong reads are served by a quorum of replicas. This makes
+sense.
+
+Apart from regular writes, DynamoDB supports atomic in-place updates
+of attributes of a data item. For example, we can update `user.name`,
+`user.address`, and `user.telephone` for a given `user.id` in a single
+update api call to DynamoDB (one round-trip). The update can also be
+conditional, in which case it is applied if and only if the current
+value of the data item meets certain conditions. Conditional update is
+[presumably][aws2012] implemented via paxos, giving it CAS semantics.
+To help construct in-place conditional update operations, DynamoDB
+defines a fairly expressive language for [conditional
+expressions][condexp] and [update expressions][updexp] (A primer on
+reading and writing items using expressions is [here][exprprimer]).
+The documentation says that conditional update is idempotent, because
+CAS is idempotent, but DynamoDB's conditional update is more general
+than CAS. In general, conditional update is idempotent only if the
+update negates the condition. 
+<!-- Are DynamoDB's conditional updates equivalent to serializable
+transactions over single data items? While it may seem so on the
+surface, this is not exactly true because DynamoDB's conditional
+updates are merely quorum writes, which can fail on some replicas
+because the condition evaluated to false there. However, the update
+may succeed on other replicas, and can eventually propagate to all
+replicas, thus leaving us with the awkward possibility of CAS taking
+effect even when the condition evaluated to false! -->
+
+Through conditional updates, DynamoDB already offers serializable
+transactions on (multiple attributes of) a single data item. But, this
+is only the beginning! As it turns out, DynamoDB also implements
+full-fledged multi-object [transactions][dynamotxns] with variable
+isolation levels! (more [here][dynamotxnsgithub]). DynamoDB currently
+defines three different isolation levels, without making any reference
+to the ANSI SQL standard. As described by the documentation:
+
++ Fully isolatated reads are performed through obtaining locks during
+  a transaction, just like writes.
++ Committed reads are provide a consistency guarantee similar to
+  eventually consistent reads, and are performed by reading the old
+  copy of the item if a lock is detected.
++ Uncommitted reads (also known as dirty reads) are the cheapest, but
+  are the most dangerous, since they may return data that will later
+  be rolled back. 
+
+Roughly, they correspond to ANSI SQL Serializable, Read Committed, and
+Read Uncommitted isolation levels, respectively. Note that, unlike
+relational databases, where isolation level is set per-transaction,
+DynamoDB allows isolation level to be set per-read in a transaction.
+This is why there is no isolation level corresponding to Repeatable
+Read. Nonetheless, more analysis is needed to determine the exact
+guarantees offered by each of these isolation levels.
+
+So, to summarize, DynamoDB offers quorum writes and weak reads by
+default. Application can request strong reads to get RMW, but they are
+twice as expensive. An update operation is a quorum write that lets
+(multiple attributes of) a data item to be upated atomically. It
+consumes one write capacity unit. So does a conditional update,
+that goes beyond CAS semantics to enable serializable transactions on
+a single data item. However, conditional updates may often fail, and
+retries consume more write units, making it expensive. Multi-item
+transactions with variable isolation levels are possible, and writes
+from transactions are very expensive. As per the
+[documentation][dynamotxns], a write from a transaction consumes
+roughtly 7N+4 write capacity units, where N is the size of the
+transaction. The cost model for each isolation level is not known, but
+fully isolated transactions are most expensive because it comes "at
+the cost of turning reads into relatively expensive writes."
+
+Sample Applications
+===================
+
++ This [blog][simplegame] describes a simple game, where two players
+  advance their positions via conditional updates.
++ Product catalogue case study is described [here][casestudy].
++ Tic-Tac-Toe game developed via conditional updates and multi-key
+  transactions is described in this [blog][tttblog]. The example is
+  also discussed in [this][reinvent13] AWS re:Invent 2013 video. The
+  same video also describes Dropcam's experience using DynamoDB. The
++ Session logouts due to the lack of RMW is described [here][sessions].
+
+[dynamo]:http://www.allthingsdistributed.com/files/amazon-dynamo-sosp2007.pdf
+[sloppy]:https://jimdowney.net/2012/03/05/be-careful-with-sloppy-quorums/
+[dynamodoc]: https://aws.amazon.com/dynamodb/faqs/
+[dynamoDBCore]: http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.CoreComponents.html
+[condexp]: http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html?shortFooter=true#ConditionExpressionReference
+[updexp]: http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.Modifying.html?shortFooter=true#Expressions.Modifying.UpdateExpressions
+[exprprimer]: http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.html?shortFooter=true
+[stackoverflow1]: http://stackoverflow.com/questions/20544518/dynamodb-conditional-writes-vs-the-cap-theorem
+[dynamotxns]:https://aws.amazon.com/blogs/aws/dynamodb-transaction-library/
+[dynamotxnsgithub]:https://github.com/awslabs/dynamodb-transactions
+[aws2012]: http://www.slideshare.net/AmazonWebServices/building-webscale-applications-architectures-with-aws-aws-reinvent-2012-arc205/39-More_complex_at_application_layerSharded
+[simplegame]: https://java.awsblog.com/post/Tx3RRJX73ZNOVL/Using-Improved-Conditional-Writes-in-DynamoDB
+[casestudy]: http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.CaseStudy.html?shortFooter=true
+[tttblog]:https://java.awsblog.com/post/Tx13H2W58QMAOA7/Performing-Conditional-Writes-Using-the-Amazon-DynamoDB-Transaction-Library
+[sessions]: https://aws.amazon.com/blogs/aws/scalable-session-handling-in-php-using-amazon-dynamodb/
+[reinvent13]: https://www.youtube.com/watch?v=Dh8kp1AcRg0
+
