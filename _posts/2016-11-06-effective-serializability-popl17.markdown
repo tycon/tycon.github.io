@@ -250,8 +250,12 @@ Observations and Questions
    violations. 4 of the 8 bugs discussed above fall into this
    category. The fix proposed in all the cases is to basically turn
    the mutable data into an op-based RDT. Assuming that we start we
-   such an implementation, how many new bugs are uncovered? What are
-   the fixes?
+   such an implementation, how many new bugs would be uncovered? What
+   are the fixes?
+6. It would be interesting to apply effective serializability
+   criterion to replicated versions of stacks and queues. Experience
+   tells us that replicating these data structures in a
+   coordination-free fashion is quite tricky.
 <!-- My point is that the uncovered bugs are either due to clever test
 engineering, or are rather trivial. -->
 
