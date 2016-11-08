@@ -232,18 +232,17 @@ Observations and Questions
 
 1. It is remarkable that testing could uncover uniqueness bugs and
    foreign key bugs since they require concurrent transactions
-   to issue operations on very specific keys and ids (uniqueness for
+   to issue operations on very specific keys and ids (<del>uniqueness for
    example requires to randomly issued `NEW_ORDER` transactions to
-   insert an order with exact same id!). 
+   insert an order with exact same id</del> See comments). 
 2. Moreover, uncovering these bugs requires conflicting transactions
    to overlap in a specific manner. Such concurrent schedules are hard
    to trigger, aren't they?
 3. This leads to the question: what is the test harness and testing
    methodology?
-4. All query transactions have been excluded by the analysis, yet
-   perceived foreign key violation has been uncovered. It is precisely
-   for this reason that I don't feel comfortable excluding query
-   transactions.
+4. Perceived foreign key violation has been uncovered by analyzing a
+   query transaction. It is for this reason that I don't feel
+   comfortable excluding query transactions.
 5. With mutable data, lost updates are inevitable. That is, the
    presence of `UPDATE ... SET` queries in weakly isolated
    transactions is itself a sufficient condition to witness SER
