@@ -15,7 +15,7 @@ worth a read. In this blog, I present OCaml code with a series of
 examples involving (first-class) modules that gradually build up to
 modular implicits.
 
-{% highlight OCaml %}
+```ocaml
 (** 
  * Filename: modules.ml
  * To run this file, do one of the following:
@@ -332,6 +332,6 @@ let [[2;3];[4;5]] = of_string "[[2;3];[4;5]]";;
  * parameters. The code behaves as if both the functions are part of a
  * typeclass, for which int, float and list instances exist.
  *)  
-{% endhighlight %}
+```
 
 To conclude, **First-class modules + implicits = typeclasses in ML!**.
