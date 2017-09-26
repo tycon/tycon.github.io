@@ -15,7 +15,7 @@ worth a read. In this blog, I present OCaml code with a series of
 examples involving (first-class) modules that gradually build up to
 modular implicits.
 
-{% highlight ocaml %}
+{% highlight OCaml %}
     (** 
      * Filename: modules.ml
      * To run this file, do one of the following:
