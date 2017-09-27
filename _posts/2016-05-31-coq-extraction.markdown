@@ -19,7 +19,9 @@ coq, it is impossible for `div` to divide by zero. However, when this
 code is extracted to OCaml, the `n <>0` prop is erased (Coq renames our
 `div` to `div0` to avoid name clash with `NPeano`'s `div`):
 
+{% highlight Ocaml %}
     let div0 m n = div m n
+{% endhighlight %}
 
 #### Sumbool ####
 
@@ -27,24 +29,31 @@ Coq's `sumbool` type is another good example to demonstrate the proof
 erasing nature of extraction. `sumbool` is defined in `Specif` module
 as following:
 
-    (** [sumbool] is a boolean type equipped with the justification of
-        their value *)
 
-    Inductive sumbool (A B:Prop) : Set :=
-      | left : A -> {A} + {B}
-      | right : B -> {A} + {B}
-     where "{ A } + { B }" := (sumbool A B) : type_scope.
+{% highlight Ocaml %}
+(** [sumbool] is a boolean type equipped with the justification of
+    their value *)
+
+Inductive sumbool (A B:Prop) : Set :=
+  | left : A -> {A} + {B}
+  | right : B -> {A} + {B}
+ where "{ A } + { B }" := (sumbool A B) : type_scope.
+{% endhighlight %}
 
 `sumbool` is usually the return type of equality decision procedures
 of various types. For example, the `string_dec`, the string equality
 function has the type:
 
-      forall s1 s2 : string, {s1 = s2} + {s1 <> s2}
+{% highlight coq %}
+forall s1 s2 : string, {s1 = s2} + {s1 <> s2}
+{% endhighlight %}
 
 Consider a type `id` defined as:
 
-      Inductive id : Type :=
-        T : string -> t.
+{% highlight coq %}
+Inductive id : Type :=
+  T : string -> t.
+{% endhighlight %}
 
 A decision procedure `id`s can be constructed from `string_dec` as
 following:

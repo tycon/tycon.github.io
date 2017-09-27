@@ -19,7 +19,7 @@ OCaml:
 {% endhighlight %}
 
 Haskell:
-{% highlight haskell %}
+{% highlight Haskell %}
     data Vec :: * -> Nat -> * where
       VNil :: Vec a 'Zero
       VCons :: a -> Vec a n -> Vec a ('Succ n)
