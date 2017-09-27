@@ -4,6 +4,10 @@ title:  "First-Class Modules and Modular Implicits in OCaml"
 permalink: modular-implicits.html
 ---
 
+**Note**: If you are reading this on github.com, please read it on [my
+blog](http://tycon.github.io/modular-implicits.html), instead; it's
+much nicer.
+
 I was pleasantly surprised to discover that OCaml has been supporting
 modules as first-class objects since v3.12 (2011). Intuition suggests
 that first-class modules should be expressive enough to simulate
