@@ -149,8 +149,8 @@ module Explicits : sig end = struct
    * This feature lets us choose between various implementations of a
    * signature at run-time, depending on the execution parameters. 
    * Another big advantage of first-class modules is that it helps us
-   * achieve qualified/bounded polymorphism (à la type classes) without
-   * having to functorize everything. For instance, lets consider a
+   * achieve qualified/bounded/adhoc polymorphism, and lets us obtain
+   * Haskell-style typeclasses in ML.. For instance, lets consider a
    * SERIALZABLE signature that characterizes all serializable types:
    *)
 
@@ -205,8 +205,6 @@ module Explicits : sig end = struct
    * An alternative approach is to implement it as a *function*. The
    * second approach is more general than the first because functions
    * can have polymorphic types but functors cannot (in OCaml).
-   * Polymorphism is useful when we want to instantiate SERIALIZABLE.t
-   * with a higher-kinded type (one with a a type param)).
    *)
   (**
    * val mk_SList :
