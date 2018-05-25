@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>application.coffee - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../../../";
+</script>
+
+<script src="../../../../js/jquery.js"></script>
+<script src="../../../../js/darkfish.js"></script>
+
+<link href="../../../../css/fonts.css" rel="stylesheet">
+<link href="../../../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="file">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../../../table_of_contents.html#pages">Pages</a>
+    <a href="../../../../table_of_contents.html#classes">Classes</a>
+    <a href="../../../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="project-metadata">
+    <div id="fileindex-section" class="nav-section">
+  <h3>Pages</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../../../../CHANGELOG_md.html">CHANGELOG</a>
+  
+    <li><a href="../../../../Gemfile.html">Gemfile</a>
+  
+    <li><a href="../../../../Gemfile_lock.html">Gemfile.lock</a>
+  
+    <li><a href="../../../../MIT-LICENSE.html">MIT-LICENSE</a>
+  
+    <li><a href="../../../../README_md.html">README</a>
+  
+    <li><a href="../../../../Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../app/assets/images/shoppe/document_svg.html">document.svg</a>
+  
+    <li><a href="../../../../app/assets/images/shoppe/icons/bag_svg.html">bag.svg</a>
+  
+    <li><a href="../../../../app/assets/images/shoppe/icons/balance_svg.html">balance.svg</a>
+  
+    <li><a href="../../../../app/assets/images/shoppe/icons/box_svg.html">box.svg</a>
+  
+    <li><a href="../../../../app/assets/images/shoppe/icons/building_svg.html">building.svg</a>
+  
+    <li><a href="../../../../app/assets/images/shoppe/icons/chart_svg.html">chart.svg</a>
+  
+    <li><a href="../../../../app/assets/images/shoppe/icons/chat_svg.html">chat.svg</a>
+  
+    <li><a href="../../../../app/assets/images/shoppe/icons/checkbox_svg.html">checkbox.svg</a>
+  
+    <li><a href="../../../../app/assets/images/shoppe/icons/checkbox2_svg.html">checkbox2.svg</a>
+  
+    <li><a href="../../../../app/assets/images/shoppe/icons/cloud_svg.html">cloud.svg</a>
+  
+    <li><a href="../../../../app/assets/images/shoppe/icons/cone_svg.html">cone.svg</a>
+  
+    <li><a href="../../../../app/assets/images/shoppe/icons/credit_card_svg.html">credit_card.svg</a>
+  
+    <li><a href="../../../../app/assets/images/shoppe/icons/currency_svg.html">currency.svg</a>
+  
+    <li><a href="../../../../app/assets/images/shoppe/icons/edit_svg.html">edit.svg</a>
+  
+    <li><a href="../../../../app/assets/images/shoppe/icons/flowchart_svg.html">flowchart.svg</a>
+  
+    <li><a href="../../../../app/assets/images/shoppe/icons/gift_svg.html">gift.svg</a>
+  
+    <li><a href="../../../../app/assets/images/shoppe/icons/globe_svg.html">globe.svg</a>
+  
+    <li><a href="../../../../app/assets/images/shoppe/icons/id_svg.html">id.svg</a>
+  
+    <li><a href="../../../../app/assets/images/shoppe/icons/id2_svg.html">id2.svg</a>
+  
+    <li><a href="../../../../app/assets/images/shoppe/icons/locked_svg.html">locked.svg</a>
+  
+    <li><a href="../../../../app/assets/images/shoppe/icons/report_svg.html">report.svg</a>
+  
+    <li><a href="../../../../app/assets/images/shoppe/icons/search_svg.html">search.svg</a>
+  
+    <li><a href="../../../../app/assets/images/shoppe/icons/support_svg.html">support.svg</a>
+  
+    <li><a href="../../../../app/assets/images/shoppe/icons/tags_svg.html">tags.svg</a>
+  
+    <li><a href="../../../../app/assets/images/shoppe/icons/toolbox_svg.html">toolbox.svg</a>
+  
+    <li><a href="../../../../app/assets/images/shoppe/icons/unlocked_svg.html">unlocked.svg</a>
+  
+    <li><a href="../../../../app/assets/images/shoppe/icons/wallet_svg.html">wallet.svg</a>
+  
+    <li><a href="../../../../app/assets/images/shoppe/logo_svg.html">logo.svg</a>
+  
+    <li><a href="../../../../app/assets/images/shoppe/move_svg.html">move.svg</a>
+  
+    <li><a href="../../../../app/assets/images/shoppe/shoppe_svg.html">shoppe.svg</a>
+  
+    <li><a href="../../../../app/assets/images/shoppe/square_svg.html">square.svg</a>
+  
+    <li><a href="../../../../app/assets/images/shoppe/statuses/accepted_svg.html">accepted.svg</a>
+  
+    <li><a href="../../../../app/assets/images/shoppe/statuses/paid_svg.html">paid.svg</a>
+  
+    <li><a href="../../../../app/assets/images/shoppe/statuses/received_svg.html">received.svg</a>
+  
+    <li><a href="../../../../app/assets/images/shoppe/statuses/rejected_svg.html">rejected.svg</a>
+  
+    <li><a href="../../../../app/assets/images/shoppe/statuses/shipped_svg.html">shipped.svg</a>
+  
+    <li><a href="../../../../app/assets/javascripts/shoppe/application_coffee.html">application.coffee</a>
+  
+    <li><a href="../../../../app/assets/javascripts/shoppe/chosen_jquery_js.html">chosen.jquery.js</a>
+  
+    <li><a href="../../../../app/assets/javascripts/shoppe/jquery_ui_js.html">jquery_ui.js</a>
+  
+    <li><a href="../../../../app/assets/javascripts/shoppe/mousetrap_js.html">mousetrap.js</a>
+  
+    <li><a href="../../../../app/assets/javascripts/shoppe/order_form_coffee.html">order_form.coffee</a>
+  
+    <li><a href="../../../../app/assets/stylesheets/shoppe/application_scss.html">application.scss</a>
+  
+    <li><a href="../../../../app/assets/stylesheets/shoppe/chosen_scss.html">chosen.scss</a>
+  
+    <li><a href="../../../../app/assets/stylesheets/shoppe/dialog_scss.html">dialog.scss</a>
+  
+    <li><a href="../../../../app/assets/stylesheets/shoppe/elements_scss.html">elements.scss</a>
+  
+    <li><a href="../../../../app/assets/stylesheets/shoppe/printable_scss.html">printable.scss</a>
+  
+    <li><a href="../../../../app/assets/stylesheets/shoppe/reset_scss.html">reset.scss</a>
+  
+    <li><a href="../../../../app/assets/stylesheets/shoppe/sub_scss.html">sub.scss</a>
+  
+    <li><a href="../../../../app/assets/stylesheets/shoppe/variables_scss.html">variables.scss</a>
+  
+    <li><a href="../../../../app/views/layouts/shoppe/application_html_haml.html">application.html.haml</a>
+  
+    <li><a href="../../../../app/views/layouts/shoppe/printable_html_haml.html">printable.html.haml</a>
+  
+    <li><a href="../../../../app/views/layouts/shoppe/sub_html_haml.html">sub.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/addresses/_form_html_haml.html">_form.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/addresses/edit_html_haml.html">edit.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/addresses/new_html_haml.html">new.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/countries/_form_html_haml.html">_form.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/countries/edit_html_haml.html">edit.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/countries/index_html_haml.html">index.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/countries/new_html_haml.html">new.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/customers/_addresses_html_haml.html">_addresses.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/customers/_form_html_haml.html">_form.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/customers/_search_form_html_haml.html">_search_form.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/customers/edit_html_haml.html">edit.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/customers/index_html_haml.html">index.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/customers/new_html_haml.html">new.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/customers/show_html_haml.html">show.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/delivery_service_prices/_form_html_haml.html">_form.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/delivery_service_prices/edit_html_haml.html">edit.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/delivery_service_prices/index_html_haml.html">index.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/delivery_service_prices/new_html_haml.html">new.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/delivery_services/_form_html_haml.html">_form.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/delivery_services/edit_html_haml.html">edit.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/delivery_services/index_html_haml.html">index.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/delivery_services/new_html_haml.html">new.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/orders/_form_html_haml.html">_form.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/orders/_order_details_html_haml.html">_order_details.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/orders/_order_items_html_haml.html">_order_items.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/orders/_order_items_form_html_haml.html">_order_items_form.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/orders/_payments_form_html_haml.html">_payments_form.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/orders/_payments_table_html_haml.html">_payments_table.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/orders/_search_form_html_haml.html">_search_form.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/orders/_status_bar_html_haml.html">_status_bar.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/orders/despatch_note_html_haml.html">despatch_note.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/orders/edit_html_haml.html">edit.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/orders/index_html_haml.html">index.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/orders/new_html_haml.html">new.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/orders/show_html_haml.html">show.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/password_resets/new_html_haml.html">new.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/payments/refund_html_haml.html">refund.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/product_categories/_form_html_haml.html">_form.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/product_categories/edit_html_haml.html">edit.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/product_categories/index_html_haml.html">index.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/product_categories/new_html_haml.html">new.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/product_category_localisations/form_html_haml.html">form.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/product_category_localisations/index_html_haml.html">index.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/product_localisations/form_html_haml.html">form.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/product_localisations/index_html_haml.html">index.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/products/_form_html_haml.html">_form.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/products/_table_html_haml.html">_table.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/products/edit_html_haml.html">edit.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/products/import_html_haml.html">import.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/products/index_html_haml.html">index.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/products/new_html_haml.html">new.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/sessions/new_html_haml.html">new.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/settings/edit_html_haml.html">edit.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/shared/error_html_haml.html">error.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/stock_level_adjustments/index_html_haml.html">index.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/tax_rates/form_html_haml.html">form.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/tax_rates/index_html_haml.html">index.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/users/_form_html_haml.html">_form.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/users/edit_html_haml.html">edit.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/users/index_html_haml.html">index.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/users/new_html_haml.html">new.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/variants/form_html_haml.html">form.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/variants/index_html_haml.html">index.html.haml</a>
+  
+    <li><a href="../../../../db/countries_txt.html">countries</a>
+  
+    <li><a href="../../../../lib/tasks/shoppe_rake.html">shoppe.rake</a>
+  
+    <li><a href="../../../../shoppe_gemspec.html">shoppe.gemspec</a>
+  
+    <li><a href="../../../../test/app/README_rdoc.html">README</a>
+  
+    <li><a href="../../../../test/app/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../test/app/app/assets/javascripts/application_js.html">application.js</a>
+  
+    <li><a href="../../../../test/app/app/assets/stylesheets/application_css.html">application.css</a>
+  
+    <li><a href="../../../../test/app/config_ru.html">config.ru</a>
+  
+    <li><a href="../../../../test/app/log/test_log.html">test.log</a>
+  
+    <li><a href="../../../../test/app/public/404_html.html">404.html</a>
+  
+    <li><a href="../../../../test/app/public/422_html.html">422.html</a>
+  
+    <li><a href="../../../../test/app/public/500_html.html">500.html</a>
+  
+    <li><a href="../../../../test/app/public/favicon_ico.html">favicon.ico</a>
+  
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-label="Page app/assets/javascripts/shoppe/application.coffee">
+
+<p>#= require jquery #= require jquery_ujs #= require shoppe/mousetrap #=
+require shoppe/jquery_ui #= require shoppe/chosen.jquery #= require
+nifty/dialog #= require_tree .</p>
+
+<p>$ -&gt;</p>
+
+<pre># Automatically focus all fields with the &#39;focus&#39; class
+$(&#39;input.focus&#39;).focus()
+
+# When clicking the order search button, toggle the form
+$(&#39;a[rel=searchOrders]&#39;).on &#39;click&#39;, -&gt;
+  $(&#39;div.orderSearch&#39;).toggle()
+
+# When clicking the customer search button, toggle the form
+$(&#39;a[rel=searchCustomers]&#39;).on &#39;click&#39;, -&gt;
+  $(&#39;div.customerSearch&#39;).toggle()
+
+# Add a new attribute to a table
+$(&#39;a[data-behavior=addAttributeToAttributesTable]&#39;).on &#39;click&#39;, -&gt;
+  table = $(&#39;table.productAttributes&#39;)
+  if $(&#39;tbody tr&#39;, table).length == 1 || $(&#39;tbody tr:last td:first input&#39;, table).val().length &gt; 0
+    template = $(&#39;tr.template&#39;, table).html()
+    table.append(&quot;&lt;tr&gt;#{template}&lt;/tr&gt;&quot;)
+  false
+
+# Remove an attribute from a table
+$(&#39;table.productAttributes tbody&#39;).on &#39;click&#39;, &#39;tr td.remove a&#39;, -&gt; 
+  $(this).parents(&#39;tr&#39;).remove()
+  false
+
+# Sorting on the product attribtues table
+$(&#39;table.productAttributes tbody&#39;).sortable
+  axis: &#39;y&#39;
+  handle: &#39;.handle&#39;
+  cursor: &#39;move&#39;,
+  helper: (e,tr)-&gt;
+    originals = tr.children()
+    helper = tr.clone()
+    helper.children().each (index)-&gt;
+      $(this).width(originals.eq(index).width())
+    helper
+
+$(&#39;a[data-behavior=addAttachmentToExtraAttachments]&#39;).on &#39;click&#39;, (event) -&gt;
+  event.preventDefault();
+  $(&#39;div.extraAttachments&#39;).show();
+  $(this).hide();
+
+# Chosen
+$(&#39;select.chosen&#39;).chosen()
+$(&#39;select.chosen-with-deselect&#39;).chosen({allow_single_deselect: true})
+$(&#39;select.chosen-basic&#39;).chosen({disable_search_threshold:100})
+
+# Printables
+$(&#39;a[rel=print]&#39;).on &#39;click&#39;, -&gt;
+  window.open($(this).attr(&#39;href&#39;), &#39;despatchnote&#39;, &#39;width=700,height=800&#39;)
+  false
+
+# Close dialog
+$(&#39;body&#39;).on &#39;click&#39;, &#39;a[rel=closeDialog]&#39;, Nifty.Dialog.closeTopDialog
+
+# Open AJAX dialogs
+$(&#39;a[rel=dialog]&#39;).on &#39;click&#39;, -&gt;
+  element = $(this)
+  options = {}
+  options.width = element.data(&#39;dialog-width&#39;) if element.data(&#39;dialog-width&#39;)
+  options.offset = element.data(&#39;dialog-offset&#39;) if element.data(&#39;dialog-offset&#39;)
+  options.behavior = element.data(&#39;dialog-behavior&#39;) if element.data(&#39;dialog-behavior&#39;)
+  options.id = &#39;ajax&#39;
+  options.url = element.attr(&#39;href&#39;)
+  Nifty.Dialog.open(options)
+  false
+
+# Format money values to 2 decimal places
+$(&#39;div.moneyInput input&#39;).each formatMoneyField
+$(&#39;body&#39;).on(&#39;blur&#39;, &#39;div.moneyInput input&#39;, formatMoneyField)</pre>
+
+<p># # Format money values to 2 decimal places # window.formatMoneyField =
+-&gt;</p>
+
+<pre>value = $(this).val().replace /,/, &quot;&quot;
+$(this).val(parseFloat(value).toFixed(2)) if value.length</pre>
+
+<p># # Stock Level Adjustment dialog beavior # Nifty.Dialog.addBehavior</p>
+
+<pre>name: &#39;stockLevelAdjustments&#39;
+onLoad: (dialog,options)-&gt;
+  $(&#39;input[type=text]:first&#39;, dialog).focus()
+  $(dialog).on &#39;submit&#39;, &#39;form&#39;, -&gt;
+    form = $(this)
+    $.ajax
+      url: form.attr(&#39;action&#39;)
+      method: &#39;POST&#39;
+      data: form.serialize()
+      dataType: &#39;text&#39;
+      success: (data)-&gt;
+        $(&#39;div.table&#39;, dialog).replaceWith(data)
+        $(&#39;input[type=text]:first&#39;, dialog).focus()
+      error: (xhr)-&gt;
+        if xhr.status == 422
+          alert xhr.responseText
+        else
+          alert &#39;An error occurred while saving the stock level.&#39;
+    false
+  $(dialog).on &#39;click&#39;, &#39;nav.pagination a&#39;, -&gt;
+    $.ajax
+      url: $(this).attr(&#39;href&#39;)
+      success: (data)-&gt;
+        $(&#39;div.table&#39;, dialog).replaceWith(data)
+    false</pre>
+
+<p># # Always fire keyboard shortcuts when focused on fields #
+Mousetrap.stopCallback = -&gt; false</p>
+
+<p># # Close dialogs on escape # Mousetrap.bind &#39;escape&#39;, -&gt;</p>
+
+<pre class="ruby"><span class="ruby-constant">Nifty</span>.<span class="ruby-constant">Dialog</span>.<span class="ruby-identifier">closeTopDialog</span>()
+<span class="ruby-keyword">false</span>
+</pre>
+</main>
+
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.3.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

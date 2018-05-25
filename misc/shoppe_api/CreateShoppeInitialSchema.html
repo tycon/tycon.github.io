@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class CreateShoppeInitialSchema - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+</script>
+
+<script src="./js/jquery.js"></script>
+<script src="./js/darkfish.js"></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link">ActiveRecord::Migration
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-down">#down</a>
+    
+    <li ><a href="#method-i-up">#up</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-CreateShoppeInitialSchema">
+  <h1 id="class-CreateShoppeInitialSchema" class="class">
+    class CreateShoppeInitialSchema
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-down" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">down</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="down-source">
+            <pre><span class="ruby-comment"># File db/migrate/20130926094549_create_shoppe_initial_schema.rb, line 170</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">down</span>
+  [<span class="ruby-value">:users</span>, <span class="ruby-value">:tax_rates</span>, <span class="ruby-value">:stock_level_adjustments</span>, <span class="ruby-value">:settings</span>, <span class="ruby-value">:products</span>, <span class="ruby-value">:product_categories</span>, <span class="ruby-value">:product_attributes</span>, <span class="ruby-value">:orders</span>, <span class="ruby-value">:order_items</span>, <span class="ruby-value">:delivery_services</span>, <span class="ruby-value">:delivery_service_prices</span>, <span class="ruby-value">:countries</span>].<span class="ruby-identifier">each</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">table</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">drop_table</span> <span class="ruby-node">&quot;shoppe_#{table}&quot;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-up" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">up</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="up-source">
+            <pre><span class="ruby-comment"># File db/migrate/20130926094549_create_shoppe_initial_schema.rb, line 2</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">up</span>
+  <span class="ruby-identifier">create_table</span> <span class="ruby-string">&#39;shoppe_countries&#39;</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">string</span>  <span class="ruby-string">&#39;name&#39;</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">string</span>  <span class="ruby-string">&#39;code2&#39;</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">string</span>  <span class="ruby-string">&#39;code3&#39;</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">string</span>  <span class="ruby-string">&#39;continent&#39;</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">string</span>  <span class="ruby-string">&#39;tld&#39;</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">string</span>  <span class="ruby-string">&#39;currency&#39;</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">boolean</span> <span class="ruby-string">&#39;eu_member&#39;</span>, <span class="ruby-identifier">default</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">create_table</span> <span class="ruby-string">&#39;shoppe_delivery_service_prices&#39;</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">integer</span>  <span class="ruby-string">&#39;delivery_service_id&#39;</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">string</span>   <span class="ruby-string">&#39;code&#39;</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">decimal</span>  <span class="ruby-string">&#39;price&#39;</span>,               <span class="ruby-identifier">precision</span><span class="ruby-operator">:</span> <span class="ruby-value">8</span>, <span class="ruby-identifier">scale</span><span class="ruby-operator">:</span> <span class="ruby-value">2</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">decimal</span>  <span class="ruby-string">&#39;cost_price&#39;</span>,          <span class="ruby-identifier">precision</span><span class="ruby-operator">:</span> <span class="ruby-value">8</span>, <span class="ruby-identifier">scale</span><span class="ruby-operator">:</span> <span class="ruby-value">2</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">integer</span>  <span class="ruby-string">&#39;tax_rate_id&#39;</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">decimal</span>  <span class="ruby-string">&#39;min_weight&#39;</span>,          <span class="ruby-identifier">precision</span><span class="ruby-operator">:</span> <span class="ruby-value">8</span>, <span class="ruby-identifier">scale</span><span class="ruby-operator">:</span> <span class="ruby-value">2</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">decimal</span>  <span class="ruby-string">&#39;max_weight&#39;</span>,          <span class="ruby-identifier">precision</span><span class="ruby-operator">:</span> <span class="ruby-value">8</span>, <span class="ruby-identifier">scale</span><span class="ruby-operator">:</span> <span class="ruby-value">2</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">datetime</span> <span class="ruby-string">&#39;created_at&#39;</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">datetime</span> <span class="ruby-string">&#39;updated_at&#39;</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">text</span>     <span class="ruby-string">&#39;country_ids&#39;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">create_table</span> <span class="ruby-string">&#39;shoppe_delivery_services&#39;</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">string</span>   <span class="ruby-string">&#39;name&#39;</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">string</span>   <span class="ruby-string">&#39;code&#39;</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">boolean</span>  <span class="ruby-string">&#39;default&#39;</span>,      <span class="ruby-identifier">default</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">boolean</span>  <span class="ruby-string">&#39;active&#39;</span>,       <span class="ruby-identifier">default</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">datetime</span> <span class="ruby-string">&#39;created_at&#39;</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">datetime</span> <span class="ruby-string">&#39;updated_at&#39;</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">string</span>   <span class="ruby-string">&#39;courier&#39;</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">string</span>   <span class="ruby-string">&#39;tracking_url&#39;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">create_table</span> <span class="ruby-string">&#39;shoppe_order_items&#39;</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">integer</span>  <span class="ruby-string">&#39;order_id&#39;</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">integer</span>  <span class="ruby-string">&#39;ordered_item_id&#39;</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">string</span>   <span class="ruby-string">&#39;ordered_item_type&#39;</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">integer</span>  <span class="ruby-string">&#39;quantity&#39;</span>, <span class="ruby-identifier">default</span><span class="ruby-operator">:</span> <span class="ruby-value">1</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">decimal</span>  <span class="ruby-string">&#39;unit_price&#39;</span>,        <span class="ruby-identifier">precision</span><span class="ruby-operator">:</span> <span class="ruby-value">8</span>, <span class="ruby-identifier">scale</span><span class="ruby-operator">:</span> <span class="ruby-value">2</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">decimal</span>  <span class="ruby-string">&#39;unit_cost_price&#39;</span>,   <span class="ruby-identifier">precision</span><span class="ruby-operator">:</span> <span class="ruby-value">8</span>, <span class="ruby-identifier">scale</span><span class="ruby-operator">:</span> <span class="ruby-value">2</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">decimal</span>  <span class="ruby-string">&#39;tax_amount&#39;</span>,        <span class="ruby-identifier">precision</span><span class="ruby-operator">:</span> <span class="ruby-value">8</span>, <span class="ruby-identifier">scale</span><span class="ruby-operator">:</span> <span class="ruby-value">2</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">decimal</span>  <span class="ruby-string">&#39;tax_rate&#39;</span>,          <span class="ruby-identifier">precision</span><span class="ruby-operator">:</span> <span class="ruby-value">8</span>, <span class="ruby-identifier">scale</span><span class="ruby-operator">:</span> <span class="ruby-value">2</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">decimal</span>  <span class="ruby-string">&#39;weight&#39;</span>,            <span class="ruby-identifier">precision</span><span class="ruby-operator">:</span> <span class="ruby-value">8</span>, <span class="ruby-identifier">scale</span><span class="ruby-operator">:</span> <span class="ruby-value">3</span>, <span class="ruby-identifier">default</span><span class="ruby-operator">:</span> <span class="ruby-value">0.0</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">datetime</span> <span class="ruby-string">&#39;created_at&#39;</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">datetime</span> <span class="ruby-string">&#39;updated_at&#39;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">create_table</span> <span class="ruby-string">&#39;shoppe_orders&#39;</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">string</span>   <span class="ruby-string">&#39;token&#39;</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">string</span>   <span class="ruby-string">&#39;first_name&#39;</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">string</span>   <span class="ruby-string">&#39;last_name&#39;</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">string</span>   <span class="ruby-string">&#39;company&#39;</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">string</span>   <span class="ruby-string">&#39;billing_address1&#39;</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">string</span>   <span class="ruby-string">&#39;billing_address2&#39;</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">string</span>   <span class="ruby-string">&#39;billing_address3&#39;</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">string</span>   <span class="ruby-string">&#39;billing_address4&#39;</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">string</span>   <span class="ruby-string">&#39;billing_postcode&#39;</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">integer</span>  <span class="ruby-string">&#39;billing_country_id&#39;</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">string</span>   <span class="ruby-string">&#39;email_address&#39;</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">string</span>   <span class="ruby-string">&#39;phone_number&#39;</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">string</span>   <span class="ruby-string">&#39;status&#39;</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">datetime</span> <span class="ruby-string">&#39;received_at&#39;</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">datetime</span> <span class="ruby-string">&#39;accepted_at&#39;</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">datetime</span> <span class="ruby-string">&#39;shipped_at&#39;</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">datetime</span> <span class="ruby-string">&#39;created_at&#39;</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">datetime</span> <span class="ruby-string">&#39;updated_at&#39;</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">integer</span>  <span class="ruby-string">&#39;delivery_service_id&#39;</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">decimal</span>  <span class="ruby-string">&#39;delivery_price&#39;</span>,            <span class="ruby-identifier">precision</span><span class="ruby-operator">:</span> <span class="ruby-value">8</span>, <span class="ruby-identifier">scale</span><span class="ruby-operator">:</span> <span class="ruby-value">2</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">decimal</span>  <span class="ruby-string">&#39;delivery_cost_price&#39;</span>,       <span class="ruby-identifier">precision</span><span class="ruby-operator">:</span> <span class="ruby-value">8</span>, <span class="ruby-identifier">scale</span><span class="ruby-operator">:</span> <span class="ruby-value">2</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">decimal</span>  <span class="ruby-string">&#39;delivery_tax_rate&#39;</span>,         <span class="ruby-identifier">precision</span><span class="ruby-operator">:</span> <span class="ruby-value">8</span>, <span class="ruby-identifier">scale</span><span class="ruby-operator">:</span> <span class="ruby-value">2</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">decimal</span>  <span class="ruby-string">&#39;delivery_tax_amount&#39;</span>,       <span class="ruby-identifier">precision</span><span class="ruby-operator">:</span> <span class="ruby-value">8</span>, <span class="ruby-identifier">scale</span><span class="ruby-operator">:</span> <span class="ruby-value">2</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">datetime</span> <span class="ruby-string">&#39;paid_at&#39;</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">integer</span>  <span class="ruby-string">&#39;accepted_by&#39;</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">integer</span>  <span class="ruby-string">&#39;shipped_by&#39;</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">string</span>   <span class="ruby-string">&#39;consignment_number&#39;</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">datetime</span> <span class="ruby-string">&#39;rejected_at&#39;</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">integer</span>  <span class="ruby-string">&#39;rejected_by&#39;</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">string</span>   <span class="ruby-string">&#39;ip_address&#39;</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">string</span>   <span class="ruby-string">&#39;payment_reference&#39;</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">string</span>   <span class="ruby-string">&#39;payment_method&#39;</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">text</span>     <span class="ruby-string">&#39;notes&#39;</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">boolean</span>  <span class="ruby-string">&#39;separate_delivery_address&#39;</span>, <span class="ruby-identifier">default</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">string</span>   <span class="ruby-string">&#39;delivery_name&#39;</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">string</span>   <span class="ruby-string">&#39;delivery_address1&#39;</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">string</span>   <span class="ruby-string">&#39;delivery_address2&#39;</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">string</span>   <span class="ruby-string">&#39;delivery_address3&#39;</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">string</span>   <span class="ruby-string">&#39;delivery_address4&#39;</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">string</span>   <span class="ruby-string">&#39;delivery_postcode&#39;</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">integer</span>  <span class="ruby-string">&#39;delivery_country_id&#39;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">create_table</span> <span class="ruby-string">&#39;shoppe_product_attributes&#39;</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">integer</span>  <span class="ruby-string">&#39;product_id&#39;</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">string</span>   <span class="ruby-string">&#39;key&#39;</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">string</span>   <span class="ruby-string">&#39;value&#39;</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">integer</span>  <span class="ruby-string">&#39;position&#39;</span>,   <span class="ruby-identifier">default</span><span class="ruby-operator">:</span> <span class="ruby-value">1</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">boolean</span>  <span class="ruby-string">&#39;searchable&#39;</span>, <span class="ruby-identifier">default</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">datetime</span> <span class="ruby-string">&#39;created_at&#39;</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">datetime</span> <span class="ruby-string">&#39;updated_at&#39;</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">boolean</span>  <span class="ruby-string">&#39;public&#39;</span>, <span class="ruby-identifier">default</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">create_table</span> <span class="ruby-string">&#39;shoppe_product_categories&#39;</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">string</span>   <span class="ruby-string">&#39;name&#39;</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">string</span>   <span class="ruby-string">&#39;permalink&#39;</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">text</span>     <span class="ruby-string">&#39;description&#39;</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">datetime</span> <span class="ruby-string">&#39;created_at&#39;</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">datetime</span> <span class="ruby-string">&#39;updated_at&#39;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">create_table</span> <span class="ruby-string">&#39;shoppe_products&#39;</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">integer</span>  <span class="ruby-string">&#39;parent_id&#39;</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">integer</span>  <span class="ruby-string">&#39;product_category_id&#39;</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">string</span>   <span class="ruby-string">&#39;name&#39;</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">string</span>   <span class="ruby-string">&#39;sku&#39;</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">string</span>   <span class="ruby-string">&#39;permalink&#39;</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">text</span>     <span class="ruby-string">&#39;description&#39;</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">text</span>     <span class="ruby-string">&#39;short_description&#39;</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">boolean</span>  <span class="ruby-string">&#39;active&#39;</span>,                                      <span class="ruby-identifier">default</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">decimal</span>  <span class="ruby-string">&#39;weight&#39;</span>,              <span class="ruby-identifier">precision</span><span class="ruby-operator">:</span> <span class="ruby-value">8</span>, <span class="ruby-identifier">scale</span><span class="ruby-operator">:</span> <span class="ruby-value">3</span>, <span class="ruby-identifier">default</span><span class="ruby-operator">:</span> <span class="ruby-value">0.0</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">decimal</span>  <span class="ruby-string">&#39;price&#39;</span>,               <span class="ruby-identifier">precision</span><span class="ruby-operator">:</span> <span class="ruby-value">8</span>, <span class="ruby-identifier">scale</span><span class="ruby-operator">:</span> <span class="ruby-value">2</span>, <span class="ruby-identifier">default</span><span class="ruby-operator">:</span> <span class="ruby-value">0.0</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">decimal</span>  <span class="ruby-string">&#39;cost_price&#39;</span>,          <span class="ruby-identifier">precision</span><span class="ruby-operator">:</span> <span class="ruby-value">8</span>, <span class="ruby-identifier">scale</span><span class="ruby-operator">:</span> <span class="ruby-value">2</span>, <span class="ruby-identifier">default</span><span class="ruby-operator">:</span> <span class="ruby-value">0.0</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">integer</span>  <span class="ruby-string">&#39;tax_rate_id&#39;</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">datetime</span> <span class="ruby-string">&#39;created_at&#39;</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">datetime</span> <span class="ruby-string">&#39;updated_at&#39;</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">boolean</span>  <span class="ruby-string">&#39;featured&#39;</span>, <span class="ruby-identifier">default</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">text</span>     <span class="ruby-string">&#39;in_the_box&#39;</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">boolean</span>  <span class="ruby-string">&#39;stock_control&#39;</span>,                               <span class="ruby-identifier">default</span><span class="ruby-operator">:</span> <span class="ruby-keyword">true</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">boolean</span>  <span class="ruby-string">&#39;default&#39;</span>,                                     <span class="ruby-identifier">default</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">create_table</span> <span class="ruby-string">&#39;shoppe_settings&#39;</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">string</span> <span class="ruby-string">&#39;key&#39;</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">string</span> <span class="ruby-string">&#39;value&#39;</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">string</span> <span class="ruby-string">&#39;value_type&#39;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">create_table</span> <span class="ruby-string">&#39;shoppe_stock_level_adjustments&#39;</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">integer</span>  <span class="ruby-string">&#39;item_id&#39;</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">string</span>   <span class="ruby-string">&#39;item_type&#39;</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">string</span>   <span class="ruby-string">&#39;description&#39;</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">integer</span>  <span class="ruby-string">&#39;adjustment&#39;</span>, <span class="ruby-identifier">default</span><span class="ruby-operator">:</span> <span class="ruby-value">0</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">string</span>   <span class="ruby-string">&#39;parent_type&#39;</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">integer</span>  <span class="ruby-string">&#39;parent_id&#39;</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">datetime</span> <span class="ruby-string">&#39;created_at&#39;</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">datetime</span> <span class="ruby-string">&#39;updated_at&#39;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">create_table</span> <span class="ruby-string">&#39;shoppe_tax_rates&#39;</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">string</span>   <span class="ruby-string">&#39;name&#39;</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">decimal</span>  <span class="ruby-string">&#39;rate&#39;</span>, <span class="ruby-identifier">precision</span><span class="ruby-operator">:</span> <span class="ruby-value">8</span>, <span class="ruby-identifier">scale</span><span class="ruby-operator">:</span> <span class="ruby-value">2</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">datetime</span> <span class="ruby-string">&#39;created_at&#39;</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">datetime</span> <span class="ruby-string">&#39;updated_at&#39;</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">text</span>     <span class="ruby-string">&#39;country_ids&#39;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">create_table</span> <span class="ruby-string">&#39;shoppe_users&#39;</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">t</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">string</span>   <span class="ruby-string">&#39;first_name&#39;</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">string</span>   <span class="ruby-string">&#39;last_name&#39;</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">string</span>   <span class="ruby-string">&#39;email_address&#39;</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">string</span>   <span class="ruby-string">&#39;password_digest&#39;</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">datetime</span> <span class="ruby-string">&#39;created_at&#39;</span>
+    <span class="ruby-identifier">t</span>.<span class="ruby-identifier">datetime</span> <span class="ruby-string">&#39;updated_at&#39;</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.3.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Shoppe::DeliveryService - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link">ActiveRecord::Base
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-i-tracking_url_for">#tracking_url_for</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Shoppe::DeliveryService">
+  <h1 id="class-Shoppe::DeliveryService" class="class">
+    class Shoppe::DeliveryService
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+
+    
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-tracking_url_for" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">tracking_url_for</span><span
+            class="method-args">(order)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns a tracking URL for the passed order</p>
+
+<p>@param order [Shoppe::Order] @return [String] the full URL for the order.</p>
+          
+          
+
+          
+          <div class="method-source-code" id="tracking_url_for-source">
+            <pre><span class="ruby-comment"># File app/models/shoppe/delivery_service.rb, line 22</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">tracking_url_for</span>(<span class="ruby-identifier">order</span>)
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">tracking_url</span>.<span class="ruby-identifier">blank?</span>
+  <span class="ruby-identifier">tracking_url</span> = <span class="ruby-keyword">self</span>.<span class="ruby-identifier">tracking_url</span>.<span class="ruby-identifier">dup</span>
+  <span class="ruby-identifier">tracking_url</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-string">&#39;{{consignment_number}}&#39;</span>, <span class="ruby-constant">CGI</span>.<span class="ruby-identifier">escape</span>(<span class="ruby-identifier">order</span>.<span class="ruby-identifier">consignment_number</span>.<span class="ruby-identifier">to_s</span>))
+  <span class="ruby-identifier">tracking_url</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-string">&#39;{{delivery_postcode}}&#39;</span>, <span class="ruby-constant">CGI</span>.<span class="ruby-identifier">escape</span>(<span class="ruby-identifier">order</span>.<span class="ruby-identifier">delivery_postcode</span>.<span class="ruby-identifier">to_s</span>))
+  <span class="ruby-identifier">tracking_url</span>.<span class="ruby-identifier">gsub!</span>(<span class="ruby-string">&#39;{{billing_postcode}}&#39;</span>, <span class="ruby-constant">CGI</span>.<span class="ruby-identifier">escape</span>(<span class="ruby-identifier">order</span>.<span class="ruby-identifier">billing_postcode</span>.<span class="ruby-identifier">to_s</span>))
+  <span class="ruby-identifier">tracking_url</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.3.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>application.scss - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../../../";
+</script>
+
+<script src="../../../../js/jquery.js"></script>
+<script src="../../../../js/darkfish.js"></script>
+
+<link href="../../../../css/fonts.css" rel="stylesheet">
+<link href="../../../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="file">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../../../table_of_contents.html#pages">Pages</a>
+    <a href="../../../../table_of_contents.html#classes">Classes</a>
+    <a href="../../../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="project-metadata">
+    <div id="fileindex-section" class="nav-section">
+  <h3>Pages</h3>
+
+  <ul class="link-list">
+  
+    <li><a href="../../../../CHANGELOG_md.html">CHANGELOG</a>
+  
+    <li><a href="../../../../Gemfile.html">Gemfile</a>
+  
+    <li><a href="../../../../Gemfile_lock.html">Gemfile.lock</a>
+  
+    <li><a href="../../../../MIT-LICENSE.html">MIT-LICENSE</a>
+  
+    <li><a href="../../../../README_md.html">README</a>
+  
+    <li><a href="../../../../Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../app/assets/images/shoppe/document_svg.html">document.svg</a>
+  
+    <li><a href="../../../../app/assets/images/shoppe/icons/bag_svg.html">bag.svg</a>
+  
+    <li><a href="../../../../app/assets/images/shoppe/icons/balance_svg.html">balance.svg</a>
+  
+    <li><a href="../../../../app/assets/images/shoppe/icons/box_svg.html">box.svg</a>
+  
+    <li><a href="../../../../app/assets/images/shoppe/icons/building_svg.html">building.svg</a>
+  
+    <li><a href="../../../../app/assets/images/shoppe/icons/chart_svg.html">chart.svg</a>
+  
+    <li><a href="../../../../app/assets/images/shoppe/icons/chat_svg.html">chat.svg</a>
+  
+    <li><a href="../../../../app/assets/images/shoppe/icons/checkbox_svg.html">checkbox.svg</a>
+  
+    <li><a href="../../../../app/assets/images/shoppe/icons/checkbox2_svg.html">checkbox2.svg</a>
+  
+    <li><a href="../../../../app/assets/images/shoppe/icons/cloud_svg.html">cloud.svg</a>
+  
+    <li><a href="../../../../app/assets/images/shoppe/icons/cone_svg.html">cone.svg</a>
+  
+    <li><a href="../../../../app/assets/images/shoppe/icons/credit_card_svg.html">credit_card.svg</a>
+  
+    <li><a href="../../../../app/assets/images/shoppe/icons/currency_svg.html">currency.svg</a>
+  
+    <li><a href="../../../../app/assets/images/shoppe/icons/edit_svg.html">edit.svg</a>
+  
+    <li><a href="../../../../app/assets/images/shoppe/icons/flowchart_svg.html">flowchart.svg</a>
+  
+    <li><a href="../../../../app/assets/images/shoppe/icons/gift_svg.html">gift.svg</a>
+  
+    <li><a href="../../../../app/assets/images/shoppe/icons/globe_svg.html">globe.svg</a>
+  
+    <li><a href="../../../../app/assets/images/shoppe/icons/id_svg.html">id.svg</a>
+  
+    <li><a href="../../../../app/assets/images/shoppe/icons/id2_svg.html">id2.svg</a>
+  
+    <li><a href="../../../../app/assets/images/shoppe/icons/locked_svg.html">locked.svg</a>
+  
+    <li><a href="../../../../app/assets/images/shoppe/icons/report_svg.html">report.svg</a>
+  
+    <li><a href="../../../../app/assets/images/shoppe/icons/search_svg.html">search.svg</a>
+  
+    <li><a href="../../../../app/assets/images/shoppe/icons/support_svg.html">support.svg</a>
+  
+    <li><a href="../../../../app/assets/images/shoppe/icons/tags_svg.html">tags.svg</a>
+  
+    <li><a href="../../../../app/assets/images/shoppe/icons/toolbox_svg.html">toolbox.svg</a>
+  
+    <li><a href="../../../../app/assets/images/shoppe/icons/unlocked_svg.html">unlocked.svg</a>
+  
+    <li><a href="../../../../app/assets/images/shoppe/icons/wallet_svg.html">wallet.svg</a>
+  
+    <li><a href="../../../../app/assets/images/shoppe/logo_svg.html">logo.svg</a>
+  
+    <li><a href="../../../../app/assets/images/shoppe/move_svg.html">move.svg</a>
+  
+    <li><a href="../../../../app/assets/images/shoppe/shoppe_svg.html">shoppe.svg</a>
+  
+    <li><a href="../../../../app/assets/images/shoppe/square_svg.html">square.svg</a>
+  
+    <li><a href="../../../../app/assets/images/shoppe/statuses/accepted_svg.html">accepted.svg</a>
+  
+    <li><a href="../../../../app/assets/images/shoppe/statuses/paid_svg.html">paid.svg</a>
+  
+    <li><a href="../../../../app/assets/images/shoppe/statuses/received_svg.html">received.svg</a>
+  
+    <li><a href="../../../../app/assets/images/shoppe/statuses/rejected_svg.html">rejected.svg</a>
+  
+    <li><a href="../../../../app/assets/images/shoppe/statuses/shipped_svg.html">shipped.svg</a>
+  
+    <li><a href="../../../../app/assets/javascripts/shoppe/application_coffee.html">application.coffee</a>
+  
+    <li><a href="../../../../app/assets/javascripts/shoppe/chosen_jquery_js.html">chosen.jquery.js</a>
+  
+    <li><a href="../../../../app/assets/javascripts/shoppe/jquery_ui_js.html">jquery_ui.js</a>
+  
+    <li><a href="../../../../app/assets/javascripts/shoppe/mousetrap_js.html">mousetrap.js</a>
+  
+    <li><a href="../../../../app/assets/javascripts/shoppe/order_form_coffee.html">order_form.coffee</a>
+  
+    <li><a href="../../../../app/assets/stylesheets/shoppe/application_scss.html">application.scss</a>
+  
+    <li><a href="../../../../app/assets/stylesheets/shoppe/chosen_scss.html">chosen.scss</a>
+  
+    <li><a href="../../../../app/assets/stylesheets/shoppe/dialog_scss.html">dialog.scss</a>
+  
+    <li><a href="../../../../app/assets/stylesheets/shoppe/elements_scss.html">elements.scss</a>
+  
+    <li><a href="../../../../app/assets/stylesheets/shoppe/printable_scss.html">printable.scss</a>
+  
+    <li><a href="../../../../app/assets/stylesheets/shoppe/reset_scss.html">reset.scss</a>
+  
+    <li><a href="../../../../app/assets/stylesheets/shoppe/sub_scss.html">sub.scss</a>
+  
+    <li><a href="../../../../app/assets/stylesheets/shoppe/variables_scss.html">variables.scss</a>
+  
+    <li><a href="../../../../app/views/layouts/shoppe/application_html_haml.html">application.html.haml</a>
+  
+    <li><a href="../../../../app/views/layouts/shoppe/printable_html_haml.html">printable.html.haml</a>
+  
+    <li><a href="../../../../app/views/layouts/shoppe/sub_html_haml.html">sub.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/addresses/_form_html_haml.html">_form.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/addresses/edit_html_haml.html">edit.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/addresses/new_html_haml.html">new.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/countries/_form_html_haml.html">_form.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/countries/edit_html_haml.html">edit.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/countries/index_html_haml.html">index.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/countries/new_html_haml.html">new.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/customers/_addresses_html_haml.html">_addresses.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/customers/_form_html_haml.html">_form.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/customers/_search_form_html_haml.html">_search_form.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/customers/edit_html_haml.html">edit.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/customers/index_html_haml.html">index.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/customers/new_html_haml.html">new.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/customers/show_html_haml.html">show.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/delivery_service_prices/_form_html_haml.html">_form.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/delivery_service_prices/edit_html_haml.html">edit.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/delivery_service_prices/index_html_haml.html">index.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/delivery_service_prices/new_html_haml.html">new.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/delivery_services/_form_html_haml.html">_form.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/delivery_services/edit_html_haml.html">edit.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/delivery_services/index_html_haml.html">index.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/delivery_services/new_html_haml.html">new.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/orders/_form_html_haml.html">_form.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/orders/_order_details_html_haml.html">_order_details.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/orders/_order_items_html_haml.html">_order_items.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/orders/_order_items_form_html_haml.html">_order_items_form.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/orders/_payments_form_html_haml.html">_payments_form.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/orders/_payments_table_html_haml.html">_payments_table.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/orders/_search_form_html_haml.html">_search_form.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/orders/_status_bar_html_haml.html">_status_bar.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/orders/despatch_note_html_haml.html">despatch_note.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/orders/edit_html_haml.html">edit.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/orders/index_html_haml.html">index.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/orders/new_html_haml.html">new.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/orders/show_html_haml.html">show.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/password_resets/new_html_haml.html">new.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/payments/refund_html_haml.html">refund.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/product_categories/_form_html_haml.html">_form.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/product_categories/edit_html_haml.html">edit.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/product_categories/index_html_haml.html">index.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/product_categories/new_html_haml.html">new.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/product_category_localisations/form_html_haml.html">form.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/product_category_localisations/index_html_haml.html">index.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/product_localisations/form_html_haml.html">form.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/product_localisations/index_html_haml.html">index.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/products/_form_html_haml.html">_form.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/products/_table_html_haml.html">_table.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/products/edit_html_haml.html">edit.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/products/import_html_haml.html">import.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/products/index_html_haml.html">index.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/products/new_html_haml.html">new.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/sessions/new_html_haml.html">new.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/settings/edit_html_haml.html">edit.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/shared/error_html_haml.html">error.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/stock_level_adjustments/index_html_haml.html">index.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/tax_rates/form_html_haml.html">form.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/tax_rates/index_html_haml.html">index.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/users/_form_html_haml.html">_form.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/users/edit_html_haml.html">edit.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/users/index_html_haml.html">index.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/users/new_html_haml.html">new.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/variants/form_html_haml.html">form.html.haml</a>
+  
+    <li><a href="../../../../app/views/shoppe/variants/index_html_haml.html">index.html.haml</a>
+  
+    <li><a href="../../../../db/countries_txt.html">countries</a>
+  
+    <li><a href="../../../../lib/tasks/shoppe_rake.html">shoppe.rake</a>
+  
+    <li><a href="../../../../shoppe_gemspec.html">shoppe.gemspec</a>
+  
+    <li><a href="../../../../test/app/README_rdoc.html">README</a>
+  
+    <li><a href="../../../../test/app/Rakefile.html">Rakefile</a>
+  
+    <li><a href="../../../../test/app/app/assets/javascripts/application_js.html">application.js</a>
+  
+    <li><a href="../../../../test/app/app/assets/stylesheets/application_css.html">application.css</a>
+  
+    <li><a href="../../../../test/app/config_ru.html">config.ru</a>
+  
+    <li><a href="../../../../test/app/log/test_log.html">test.log</a>
+  
+    <li><a href="../../../../test/app/public/404_html.html">404.html</a>
+  
+    <li><a href="../../../../test/app/public/422_html.html">422.html</a>
+  
+    <li><a href="../../../../test/app/public/500_html.html">500.html</a>
+  
+    <li><a href="../../../../test/app/public/favicon_ico.html">favicon.ico</a>
+  
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-label="Page app/assets/stylesheets/shoppe/application.scss">
+
+<pre>= require shoppe/reset
+= require shoppe/elements
+= require shoppe/chosen
+= require nifty/dialog
+= require shoppe/dialog
+= require_self</pre>
+
+<p>@import &#39;variables&#39;;</p>
+
+<p>html { font-family:$font; font-size:12px; color:#000;
+-webkit-font-smoothing:antialiased; background-color:#f7f9fc;
+overflow-y:scroll}</p>
+
+<p>nav.sidebar {</p>
+
+<pre>width:200px;
+background:#40454D;
+position:fixed;
+top:0;
+bottom:0;
+header.logo {
+        height:57px;
+        background:image-url(&#39;shoppe/logo.svg&#39;) #9AC835 no-repeat 22px 25px;
+        background-size:45px;
+        padding-left:80px;
+        padding-top:28px;
+        h1 a {
+                display:block;
+                width:72px;
+                height:16px;
+                background:image-url(&#39;shoppe/shoppe.svg&#39;) no-repeat;
+                background-size:72px 16px;
+                text-indent:-40000px;
+        }
+        p { color:#fff; font-size:0.9em; margin-top:4px; }
+}
+
+p.logged {
+        background:#5B6270;
+        padding:12px 20px;
+        color:#fff;
+        font-size:0.9em;
+}
+
+ul {
+        li {
+                span.pending { float:right; font-size:0.9em;  font-weight:bold;background:#5B6270; color:#fff; padding:2px 10px; border-radius:16px; margin-top:9px; margin-right:10px;}
+                a {
+                        display:block;
+                        border-bottom:1px solid rgba(255,255,255,0.05);
+                        color:rgba(255,255,255,0.7);
+                        text-decoration:none;
+                        padding:10px 20px;
+                        font-size:1.1em;
+                        &amp;:hover {
+                                background:rgba(0,0,0,0.05);
+                        }
+                        &amp;.active {
+                                font-weight:bold;
+                                color:#fff;
+                                background:rgba(0,0,0,0.08);
+                        }
+                }
+        }
+}</pre>
+
+<p>}</p>
+
+<p>header.main {</p>
+
+<pre>position:fixed;
+left:200px;
+right:0;
+height:85px;
+background:#fff;
+box-shadow: 0 0px 15px -2px rgba(0,0,0,0.2);
+z-index: 1;
+p.buttons { float:right; margin-top:27px; margin-right:35px;}
+p.buttons a { margin-left:10px;}
+h2 { margin-top:28px; margin-left:35px; font-size:2.0em; font-weight:300; color:#333; background-repeat:no-repeat; background-size:22px; background-position:0 5px; padding-left:32px;}
+h2 span { font-size:0.4em; font-weight:normal; color:#999; margin-left:10px;}
+h2 b { font-weight:500;}
+h2.products { background-image:image-url(&#39;shoppe/icons/tags.svg&#39;)}
+h2.orders { background-image:image-url(&#39;shoppe/icons/bag.svg&#39;); background-position: 0 3px;}
+h2.delivery_services { background-image:image-url(&#39;shoppe/icons/box.svg&#39;); background-position: 0 3px; background-size:20px;}
+h2.tax_rates { background-image:image-url(&#39;shoppe/icons/currency.svg&#39;); background-position: 0 2px; background-size:22px;}
+h2.users { background-image:image-url(&#39;shoppe/icons/id.svg&#39;); background-position: 0 2px; background-size:22px;}
+h2.countries { background-image:image-url(&#39;shoppe/icons/globe.svg&#39;); background-position: 0 2px; background-size:22px;}
+h2.settings { background-image:image-url(&#39;shoppe/icons/toolbox.svg&#39;); background-position: 0 2px; background-size:22px;}</pre>
+
+<p>}</p>
+
+<p>content {</p>
+
+<pre>padding-left:200px;
+padding-top:85px;
+
+section.main {
+        padding:35px;
+}
+
+//
+// flashes
+//
+#flash-notice { background:#21a3e0; padding:15px 35px; color:#fff; font-size:1.2em; font-weight:bold;}
+#flash-alert { background:#e04e21; padding:15px 35px; color:#fff; font-size:1.2em; font-weight:bold;}
+
+//
+// sub title
+//
+.subtitle {
+        background:#fff;
+        border:1px solid #CFD4DD;
+        margin-bottom:25px;
+        padding:15px;
+        h3 { font-size:2.0em; font-weight:500;}
+}
+
+//
+// Status tags
+//
+span.status-tag {
+        font-weight:600;
+        font-size:11px;
+        text-transform:uppercase;
+        background-size:16px;
+        background-repeat:no-repeat;
+        padding-left:20px;
+        min-height:16px;
+        display:inline-block;
+        &amp;.shipped { color:#E32479; background-image:image-url(&#39;shoppe/statuses/shipped.svg&#39;); }
+        &amp;.accepted { color:#89BD2F; background-image:image-url(&#39;shoppe/statuses/accepted.svg&#39;); }
+        &amp;.rejected { color:#E33127; background-image:image-url(&#39;shoppe/statuses/rejected.svg&#39;); }
+        &amp;.received { color:#909091; background-image:image-url(&#39;shoppe/statuses/received.svg&#39;); }
+}
+
+//
+// fieldset
+//
+fieldset {
+        border:1px solid #dce2eb;
+        background:#fff;
+        padding-top:15px;
+        padding-bottom:25px;
+        margin-bottom:15px;
+        legend {color:#5B6270; margin:0 25px; font-weight:300; font-size:1.5em;}
+        &amp;.padded { padding:15px 25px 25px 25px;}
+        &amp;.padded legend { margin:0;}
+}
+
+//
+// forms
+//
+form {
+        fieldset {
+
+                .splitContainer { margin:0 25px; margin-bottom:15px; height:50px;}
+                .splitContainer:last-child { margin-bottom:0;}
+
+                dl.cleared {
+                        margin-top:15px;
+                        clear:both;
+                }
+
+                dl {
+                        margin:0 25px;
+                        margin-bottom:15px;
+                        &amp;:last-child { margin-bottom:0;}
+                        dt { margin-bottom:10px;  font-size:1.2em;}
+                        dt label { font-weight:500;}
+                        dd {  }
+                        dd input[type=text], dd input[type=password], textarea {
+                        }
+                        dd select { width:100%;}
+                        dd textarea { height:80px;      }
+                        dd p.help { margin-top:15px; color:#333; background:image-url(&#39;shoppe/icons/support.svg&#39;) no-repeat 0 3px; line-height:1.5; background-size:13px; padding-left:18px; opacity:0.7;}
+                        dd.checkbox { margin-top:14px; font-size:1.1em; color:#999;}
+                        dd.checkbox input { float:left; margin-right:10px; margin-top:2px; }
+                        dd div.radios {
+                                padding-top:4px;
+                                input,label { margin-right:10px;}
+                        }
+                        dd.space { margin-bottom:5px;}
+                        dd.space:last-child { margin-bottom:0;}
+                        &amp;.half {
+                                width:49%;
+                                margin:0;
+                                float:left;
+                                &amp;:nth-child(2) { float:right;}
+                        }
+
+                        &amp;.third {
+                                width:31%;
+                                margin:0;
+                                float:left;
+                                &amp;:nth-child(2) { margin-left:2%; width:32%;}
+                                &amp;:last-child { float:right; width:33%;}
+                        }
+
+                        &amp;.quarter {
+                                width:23%;
+                                margin:0;
+                                margin-left:2%;
+                                float:left;
+                                &amp;:last-child { float:right; width:25%;}
+                                &amp;:first-child { margin:0;}
+                        }
+
+                        &amp;.three-quarter {
+                                width:75%;
+                                margin:0;
+                                float:right;
+                        }
+                }
+
+                dl.sided {
+                        clear:both;
+                        dt { float:left; width:25%; text-align:right; padding-top:4px;}
+                        dd { margin-left:30%; }
+                        dd p.help { margin-top:10px;}
+                        dd div.checkbox { padding-top:5px;}
+                }
+
+                //
+                // margined container
+                //
+                div.margin { margin: 0 25px;}
+
+                //
+                // attributes table
+                //
+                table.productAttributes {
+                        width:100%;
+                        margin-bottom:10px;
+                        line-height:1.0;
+                        thead td, thead th { text-align:left; border:1px solid #ccc; background:#f7f7f7; color:#999; font-size:0.9em; padding:10px; }
+                        tr:nth-child(even) td {
+                                background:#fbfbfb;
+                        }
+                        td {
+                                border:1px solid #ccc;
+                                padding:10px;
+                                vertical-align:middle;
+                                width:40%;
+                                input[type=text] { width:100%; border:0; padding:0; margin:0; font-size:1.2em;}
+                                &amp;.remove { width:8%; text-align:center; background:#ffeff5;}
+                                &amp;.searchable {  width:8%; text-align:center; }
+                                &amp;.handle { width:4%; background:image-url(&#39;shoppe/move.svg&#39;) no-repeat center; background-size:16px;}
+                        }
+                }
+
+                //
+                // imports example table
+                //
+                table.importExample {
+                        @extend table.productAttributes;
+                        tr:nth-last-child(2) td {
+                                border-bottom: none;
+                        }
+                        tr.tear-off td {
+                                border:none;
+                                background:image-url(&#39;shoppe/table-tear-off.png&#39;) repeat-x 0 0;
+                                height:5px;
+                                padding:0;
+                        }
+                        td {
+                                border:1px solid #ddd;
+                                font-size:0.9em;
+                                width:auto;
+                        }
+                }
+
+                //
+                // category&#39;s children table
+                //
+                table.categoryChildren {
+                        @extend table.importExample;
+                        a { color:#000; }
+                        tr:nth-last-child(2) td {
+                                border: 1px solid #ddd;
+                        }
+                }
+        }
+        p.submit {margin:0; background:#fff; border:1px solid #dce2eb; padding:25px; }
+        p.submit .button {
+                margin-right:5px;
+                vertical-align: middle;
+        }
+        p.submit .right .button {margin-left:5px; margin-right:0;}
+        p.submit span.right {float:right;}
+        p.submit.sided { padding-left:30%;}
+        .errorExplanation {
+    margin-bottom:25px;
+    border:1px solid #EB2732;
+                background:#fff;
+    padding:25px;
+    line-height:1.5;
+    h2 { font-size:1.5em !important; font-weight:300; color:#de1818;  margin-bottom:10px;}
+    p { display:none;}
+    ul li { list-style:disc; margin-left:25px; font-size:1.2em;}
+  }
+}
+
+div.extraAttachments{
+        display: none;
+
+        dl.half { margin-top: 15px; }
+}
+
+p.addAttachments {
+        float: right;
+        margin: 15px 25px 0 0;
+}
+
+//
+// attachment preview
+//
+div.attachmentPreview {
+        overflow:hidden;
+        border:1px solid #ccc;
+        background:#f7f7f7;
+        padding:10px;
+        margin-bottom:15px;
+        div.imgContainer {  float:left;padding:4px;      border:1px solid #ccc; background:#fff;}
+        div.imgContainer div.img { background-image:image-url(&#39;shoppe/document.svg&#39;); width:40px; height:40px; display:block;background-size:contain; background-repeat:no-repeat; background-position: center center;}
+        div.imgContainer div.img.none { background-image:none;}
+        div.desc {margin-left:60px; padding-top:5px;}
+        div.desc span { display:block}
+        div.desc span.filename { font-size:1.1em; margin-bottom:5px;}
+        div.desc span.filename a { text-decoration:none; font-weight:bold;}
+        div.desc span.delete a  { color:#FF9781; font-size:0.9em; }
+        div.desc a { color:#000;}
+        div.desc.none { color:#999; font-style:italic;}
+}
+
+//
+// order &amp; customer summary pages
+//
+#order, #customer {
+        .details {
+                overflow:hidden;
+                .left {
+                        width:55%;
+                        float:left
+                }
+                .right {
+                        width:45%;
+                        float:left;
+                        p.acceptreject { text-align:center; margin-top:22px; }
+                        p.acceptreject a { margin: 0 5px;}
+                        p.ship { text-align:center; margin-top:22px;}
+                        p.ship input[type=text] {  }
+                }
+
+                dl {
+                        dt { float:left; width:30%; text-align:right; color:#888;white-space:nowrap}
+                        dd { font-weight:bold; margin-left:35%; margin-bottom:6px; white-space:nowrap}
+                        dd a { color:inherit;}
+                        dt.padding { padding-top:6px;}
+                }
+
+                dl.form {
+                        margin-top:15px;
+                        input.text { width:70%;}
+                        a.button { margin-right:5px;}
+                }
+
+        }
+
+        .status-bar {
+                background:image-url(&#39;shoppe/square.svg&#39;) repeat-x 0 15px;
+                background-size:8px;
+                margin:45px 0;
+                overflow:hidden;
+                ul {
+                        li { width:33%;float:left; text-align:center; background:image-url(&#39;shoppe/statuses/shipped.svg&#39;) no-repeat center 0; background-size:36px; padding-top:42px;z-index:10;}
+                        h4 { color:#E32479;}
+                        li p { margin-top:5px; font-size:0.9em; color:#999;}
+                        li a { color:inherit;}
+                        li.payment { background-image:image-url(&#39;shoppe/statuses/paid.svg&#39;)}
+                        li.payment h4 { color:#3DB3E2;}
+                        li.received { background-image:image-url(&#39;shoppe/statuses/received.svg&#39;)}
+                        li.received h4 { color:#909091;}
+                        li.accepted { background-image:image-url(&#39;shoppe/statuses/accepted.svg&#39;)}
+                        li.accepted h4 { color:#89BD2F;}
+                        li.rejected { background-image:image-url(&#39;shoppe/statuses/rejected.svg&#39;)}
+                        li.rejected h4 { color: #E33127}
+                }
+        }
+
+        .order_items {
+                table.data {
+                        .money { text-align:right; width:8%}
+                        .product { width:42%;}
+                        .sku { width:18%;}
+                        .qty {text-align:center; width:5%;}
+                }
+        }
+}
+
+//
+// warning message
+//
+p.warning {
+        background:#ffffed;
+        border:1px solid #ed7c04;
+        color:#ed7c04;
+        font-size:1.1em;
+        font-weight:500;
+        margin-bottom:25px;
+        padding:15px;
+}
+
+//
+// payments
+//
+fieldset.orderPayments {
+        h4 { font-weight:bold; text-transform:uppercase; color:#5B6270;}
+        .table {
+                margin-bottom:20px;
+                table td.refund { width:10%; text-align:center;}
+                table td.confirmed { width:5%; text-align:center;}
+        }
+        form {
+                overflow:hidden;
+                background:#F7F9FC;
+                border:1px solid #DCE2EB;
+                padding:15px;
+                dl {
+                        float:left;
+                        dt {  margin-bottom:4px; font-size:0.9em;color:#A9AEB5; font-weight:500;}
+                        &amp;.text {
+                                width: 37%;
+                                margin-right: 2%;
+                        }
+
+                        &amp;.amount {
+                                min-width: 131px;
+                                margin-right: 2%;
+                        }
+
+                        &amp;.submit {
+                                text-align: right;
+                                margin-top: 15px;
+                        }
+                }
+        }
+        p.notice {
+                background:#fffff3;
+                padding:10px;
+                color:#F67C00;
+                border:1px solid #F6B721;
+                margin-bottom:15px;
+        }
+}
+
+//
+// order search
+//
+div.orderSearch, div.customerSearch {
+        overflow:hidden;
+        display:none;
+        dl.left, dl.right {
+                float:left;
+                width:50%;
+                dt { float:left; width:40%; text-align:right; padding-top:3px; color:#888;}
+                dd { margin-left:44%; margin-bottom:15px;}
+                dd input.small { width:40%;}
+        }
+        p.submit {
+                float:right;
+        }
+}
+
+//
+// new order form
+//
+form.orderForm {
+        input[type=text].disabled { background:#f7f7f7; color:#888}
+        p.slaWarning {
+                background:#e5eaf4;
+                padding:15px;
+                border:1px solid #abb4c6;
+                border-top:0;
+                text-align:center;
+        }
+        table.orderItems {
+                thead {
+                        th.product { width:40%;}
+                        th.qty, th.stock { width:5%; text-align:center;}
+                        th.price, th.tax, th.total, th.weight { width:50px;}
+                }
+                tbody {
+                        td.qty input { text-align:center;}
+                        td.stock { text-align:center;}
+                        td input { width:100%; font-size:1.0em; padding:3px; background:#f7f7f7;}
+                        td.product select {width:400px;}
+                        tr.item.new td { background:#f7f7f7;}
+                        td.stock.oos { background:#fff4f4; color:#e32828;}
+                        tr.delivery td.none { background:#fff4f4; color:#e32828; font-weight:500;}
+                }
+                tfoot {
+                        td input { width:100%;padding:3px; background:transparent; border:0; font-size:1.0em; color:#fff;}
+                }
+
+        }
+}</pre>
+
+<p>}</p>
+
+<p>footer {</p>
+
+<pre>position:fixed;
+bottom:0;
+width:200px;
+background:rgba(0,0,0,0.05);
+
+p.store {
+        a {
+                display:block;
+                background:#4B515C;
+                color:rgba(255,255,255,0.7);
+                padding:12px 20px;
+                font-size:1.1em;
+                text-decoration:none;
+        }
+}</pre>
+
+<p>}</p>
+
+<p>span.boolean span.true { color:#96BF48} span.boolean span.false {
+color:#c04a4a}</p>
+
+<p>.float-right { float:right;}</p>
+
+<p>div.field_with_errors { display:inline;}</p>
+
+<p>// // money input box // div.moneyInput {</p>
+
+<pre>overflow:hidden;
+div.currency {float:left; background:#f3f6ec; color:#74884a; padding:5px; width:20px; text-align:center;border:1px solid #c5ceb1; font-size:1.1em; border-right:0;}
+input {  width:100px; font-size:1.1em;}</pre>
+
+<p>}</p>
+
+<p>// // standard text input box // input.text, textarea.text {</p>
+
+<pre>      width:100%; padding:5px; border:1px solid #ccc;
+      -webkit-box-sizing: border-box;    Safari/Chrome, other WebKit   
+-moz-box-sizing: border-box;    /* Firefox, other Gecko */
+box-sizing: border-box;         /* Opera/IE 8+ */
+      font-size:1.1em;
+      font-family:$font;
+      &amp;:focus { border-color:#9AC835; }
+      &amp;.short { width:100px;}</pre>
+
+<p>}</p>
+
+<p>// // data table // div.table {</p>
+
+<pre>p.info {
+        overflow:hidden;
+        margin-bottom:10px;
+        color:#40454D;
+}</pre>
+
+<p>}</p>
+
+<p>table.data {</p>
+
+<pre>width:100%;
+th, td { padding:10px; vertical-align:middle;}
+thead th { border:1px solid #40454D; background:#40454D; text-align:left; font-weight:normal; font-size:0.9em; color:#fff; }
+tbody td { border:1px solid #cfd4dd; background:#fff;}
+a { color:inherit;}
+tbody th { text-align:left; background:#5B6270; border:1px solid #5B6270;font-size:1.2em; color:#fff;}
+tbody tr.empty td { padding:50px 0; text-align:center; color:#999; font-style:italic;}
+tfoot td.right { text-align:right; }
+tfoot td.bold { font-weight:bold;}
+tfoot td { border-top:0 solid #ccc; background:#fafafa;}
+tfoot tr:first-child td { border-top-width:3px;}
+tbody td a.edit { background:image-url(&#39;shoppe/icons/edit.svg&#39;) no-repeat; margin-top:3px;width:16px; width:16px; background-size:13px; display:inline-block; text-indent:-40000px; opacity:0.3}
+tbody td a.edit:hover { opacity:0.5}
+tbody td.table {
+        padding:0;
+        table.data {
+                td { padding:10px; border-width:0; border-right-width:1px; border-bottom-width:1px;}
+                td:last-child { border-right-width:0;}
+                tr:last-child td { border-bottom-width:0;}
+        }
+}
+tbody tr.form {
+        td { background:#f2f6fb;}
+        input[type=text] { border:1px solid #CFD4DD; padding:5px;}
+        input[type=text]:focus { border-color:#9AC835;}
+        td.desc input[type=text] { width:95%;}
+        td.adjustment input[type=text] { width:50px; margin-right:5px;}
+}
+tfoot td { background:#5B6270; color:#fff; border:1px solid #5B6270; font-weight:bold; font-size:1.1em;}</pre>
+
+<p>}</p>
+
+<p>// // pagination // nav.pagination {</p>
+
+<pre>display:block;
+margin:25px 0;
+overflow:hidden;
+text-align:center;
+span {
+        display:inline-block;
+        border:1px solid #ccc;
+        margin-right:3px;
+        color:#333;
+        background:#fff;
+        &amp;.current { background:#9AC835; border-color:#7B9F26; color:#fff; font-weight:600; padding:5px 10px;}
+        a {
+                padding:5px 10px;
+                display:inline-block;
+                color:inherit;
+                text-decoration:none;
+        }
+}</pre>
+
+<p>}</p>
+</main>
+
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.3.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+
