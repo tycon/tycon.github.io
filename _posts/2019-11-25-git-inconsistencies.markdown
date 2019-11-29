@@ -288,3 +288,6 @@ around them, however that's not a satisfactory justification for a
 well-designed system must have predictable behavior based on its
 interface, not its internals.
 
+**PS: If you know a definitive and concise description of Git's merge
+algorithm, I'd be grateful if you can drop me a note here in comments
+or on [twitter](https://twitter.com/gowthamk)**
