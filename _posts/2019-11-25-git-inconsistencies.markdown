@@ -275,6 +275,9 @@ pulled the exact same versions albeit in different order. This shows
 that order in which merges are done does matter, which is a bit
 disconcerting.
 
+This example too is available on
+[Github](https://github.com/gowthamk/git-test2) with minor variations.
+
 Conclusion
 ==========
 
